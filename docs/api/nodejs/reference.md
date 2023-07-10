@@ -3,6 +3,26 @@ layout: docu
 title: NodeJS API
 selected: Client APIs
 ---
+## Modules
+
+<dl>
+<dt><a href="#module_duckdb">duckdb</a></dt>
+<dd></dd>
+</dl>
+
+## Typedefs
+
+<dl>
+<dt><a href="#ColumnInfo">ColumnInfo</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#TypeInfo">TypeInfo</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#DuckDbError">DuckDbError</a> : <code>object</code></dt>
+<dd></dd>
+<dt><a href="#HTTPError">HTTPError</a> : <code>object</code></dt>
+<dd></dd>
+</dl>
+
 <a name="module_duckdb"></a>
 
 ## duckdb
@@ -32,6 +52,7 @@ selected: Client APIs
         * [.each(sql, ...params, callback)](#module_duckdb..Statement+each) ⇒ <code>void</code>
         * [.finalize(sql, ...params, callback)](#module_duckdb..Statement+finalize) ⇒ <code>void</code>
         * [.stream(sql, ...params)](#module_duckdb..Statement+stream)
+        * [.columns()](#module_duckdb..Statement+columns) ⇒ [<code>Array.&lt;ColumnInfo&gt;</code>](#ColumnInfo)
     * [~QueryResult](#module_duckdb..QueryResult)
         * [.nextChunk()](#module_duckdb..QueryResult+nextChunk) ⇒
         * [.nextIpcBuffer()](#module_duckdb..QueryResult+nextIpcBuffer) ⇒
@@ -132,7 +153,7 @@ Run a SQL query, returns a IpcResultStreamIterator that allows streaming the res
 (requires arrow extension to be loaded)
 
 **Kind**: instance method of [<code>Connection</code>](#module_duckdb..Connection)  
-**Returns**: IpcResultStreamIterator  
+**Returns**: Promise<IpcResultStreamIterator>  
 
 | Param | Type |
 | --- | --- |
@@ -270,6 +291,7 @@ Unregister the Buffer
     * [.each(sql, ...params, callback)](#module_duckdb..Statement+each) ⇒ <code>void</code>
     * [.finalize(sql, ...params, callback)](#module_duckdb..Statement+finalize) ⇒ <code>void</code>
     * [.stream(sql, ...params)](#module_duckdb..Statement+stream)
+    * [.columns()](#module_duckdb..Statement+columns) ⇒ [<code>Array.&lt;ColumnInfo&gt;</code>](#ColumnInfo)
 
 <a name="module_duckdb..Statement+sql"></a>
 
@@ -348,6 +370,11 @@ Not implemented
 | sql |  | 
 | ...params | <code>\*</code> | 
 
+<a name="module_duckdb..Statement+columns"></a>
+
+#### statement.columns() ⇒ [<code>Array.&lt;ColumnInfo&gt;</code>](#ColumnInfo)
+**Kind**: instance method of [<code>Statement</code>](#module_duckdb..Statement)  
+**Returns**: [<code>Array.&lt;ColumnInfo&gt;</code>](#ColumnInfo) - - Array of column names and types  
 <a name="module_duckdb..QueryResult"></a>
 
 ### duckdb~QueryResult
@@ -701,3 +728,53 @@ Currently ignored
 Currently ignored
 
 **Kind**: inner constant of [<code>duckdb</code>](#module_duckdb)  
+<a name="ColumnInfo"></a>
+
+## ColumnInfo : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| name | <code>string</code> | Column name |
+| type | [<code>TypeInfo</code>](#TypeInfo) | Column type |
+
+<a name="TypeInfo"></a>
+
+## TypeInfo : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| id | <code>string</code> | Type ID |
+| [alias] | <code>string</code> | SQL type alias |
+| sql_type | <code>string</code> | SQL type name |
+
+<a name="DuckDbError"></a>
+
+## DuckDbError : <code>object</code>
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| errno | <code>number</code> | -1 for DuckDB errors |
+| message | <code>string</code> | Error message |
+| code | <code>string</code> | 'DUCKDB_NODEJS_ERROR' for DuckDB errors |
+| errorType | <code>string</code> | DuckDB error type code (eg, HTTP, IO, Catalog) |
+
+<a name="HTTPError"></a>
+
+## HTTPError : <code>object</code>
+**Kind**: global typedef  
+**Extends**: [<code>DuckDbError</code>](#DuckDbError)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| statusCode | <code>number</code> | HTTP response status code |
+| reason | <code>string</code> | HTTP response reason |
+| response | <code>string</code> | HTTP response body |
+| headers | <code>object</code> | HTTP headers |
+
