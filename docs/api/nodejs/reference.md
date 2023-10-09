@@ -26,7 +26,7 @@ selected: Client APIs
 <a name="module_duckdb"></a>
 
 ## duckdb
-**Summary**: these jsdoc annotations are still a work in progress - feedback and suggestions are welcome!  
+**Summary**: DuckDB is an embeddable SQL OLAP Database Management System  
 
 * [duckdb](#module_duckdb)
     * [~Connection](#module_duckdb..Connection)
@@ -43,6 +43,7 @@ selected: Client APIs
         * [.unregister_udf(name, return_type, callback)](#module_duckdb..Connection+unregister_udf) ⇒ <code>void</code>
         * [.register_buffer(name, array, force, callback)](#module_duckdb..Connection+register_buffer) ⇒ <code>void</code>
         * [.unregister_buffer(name, callback)](#module_duckdb..Connection+unregister_buffer) ⇒ <code>void</code>
+        * [.close(callback)](#module_duckdb..Connection+close) ⇒ <code>void</code>
     * [~Statement](#module_duckdb..Statement)
         * [.sql](#module_duckdb..Statement+sql) ⇒
         * [.get()](#module_duckdb..Statement+get)
@@ -106,6 +107,7 @@ selected: Client APIs
     * [.unregister_udf(name, return_type, callback)](#module_duckdb..Connection+unregister_udf) ⇒ <code>void</code>
     * [.register_buffer(name, array, force, callback)](#module_duckdb..Connection+register_buffer) ⇒ <code>void</code>
     * [.unregister_buffer(name, callback)](#module_duckdb..Connection+unregister_buffer) ⇒ <code>void</code>
+    * [.close(callback)](#module_duckdb..Connection+close) ⇒ <code>void</code>
 
 <a name="module_duckdb..Connection+run"></a>
 
@@ -275,6 +277,17 @@ Unregister the Buffer
 | Param |
 | --- |
 | name | 
+| callback | 
+
+<a name="module_duckdb..Connection+close"></a>
+
+#### connection.close(callback) ⇒ <code>void</code>
+Closes connection
+
+**Kind**: instance method of [<code>Connection</code>](#module_duckdb..Connection)  
+
+| Param |
+| --- |
 | callback | 
 
 <a name="module_duckdb..Statement"></a>
@@ -476,7 +489,7 @@ Triggers callback when all scheduled database tasks have completed.
 <a name="module_duckdb..Database+serialize"></a>
 
 #### database.serialize(callback) ⇒ <code>void</code>
-TODO: what does this do?
+Currently a no-op. Provided for SQLite compatibility
 
 **Kind**: instance method of [<code>Database</code>](#module_duckdb..Database)  
 
@@ -487,7 +500,7 @@ TODO: what does this do?
 <a name="module_duckdb..Database+parallelize"></a>
 
 #### database.parallelize(callback) ⇒ <code>void</code>
-TODO: what does this do?
+Currently a no-op. Provided for SQLite compatibility
 
 **Kind**: instance method of [<code>Database</code>](#module_duckdb..Database)  
 
