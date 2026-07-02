@@ -1104,14 +1104,14 @@ $('body.documentation #main_content_wrap a.externallink').each(function () {
 		});
 	});
 
-	// DUCKCON7 EVENT PAGE
+	// DUCKCON EVENT PAGES
 	const MAPBOX_ACCESS_TOKEN = 'pk.eyJ1Ijoiam9uYXRoYW4tYXVjaCIsImEiOiJjbDllMHhxNHowbG50M29vZ3Y0NnZhdHY1In0.XQxUUmkkSGKUkNThK1p9Yg';
 	const MAPBOX_STYLES_URL = 'mapbox://styles/jonathan-auch/cmhz38wfd001801sbe3c06ece'
-	const $duckcon7Map = $('.js-duckcon7-map');
-	const duckcon7SliderClass = '.js-duckcon7-slider';
-	const $duckcon7Slider = $(duckcon7SliderClass);
+	const $duckconMap = $('.js-duckcon-map');
+	const duckconSliderClass = '.js-duckcon-slider';
+	const $duckconSlider = $(duckconSliderClass);
 
-	const duckcon7SliderOptions = {
+	const duckconSliderOptions = {
 		slidesPerView: "auto",
 		spaceBetween: 30,
 		centeredSlides: true,
@@ -1123,8 +1123,8 @@ $('body.documentation #main_content_wrap a.externallink').each(function () {
 	}
 
 	// Initialize the map if present on page
-	if ($duckcon7Map.length) {
-		const mapEl = $duckcon7Map[0];
+	if ($duckconMap.length) {
+		const mapEl = $duckconMap[0];
 		const lng = parseFloat(mapEl.dataset.lng);
 		const lat = parseFloat(mapEl.dataset.lat);
 		const label = mapEl.dataset.label;
@@ -1132,7 +1132,7 @@ $('body.documentation #main_content_wrap a.externallink').each(function () {
 		mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
 
 		const map = new mapboxgl.Map({
-			container: 'duckcon7-map',
+			container: 'duckcon-map',
 			style: MAPBOX_STYLES_URL,
 			center: [lng, lat],
 			zoom: 15,
@@ -1145,7 +1145,7 @@ $('body.documentation #main_content_wrap a.externallink').each(function () {
 	}
 
 	// Initialize the slider if present on page
-	if ($duckcon7Slider.length) {
-		const slider = new Swiper(duckcon7SliderClass, duckcon7SliderOptions);
+	if ($duckconSlider.length) {
+		const slider = new Swiper(duckconSliderClass, duckconSliderOptions);
 	}
 });
