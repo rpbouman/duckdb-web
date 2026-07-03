@@ -676,54 +676,53 @@
 
         .benefit-box {
             flex: 1;
-            padding: 30px;
+            padding: 32px;
             border-radius: 15px;
             border: 1px solid var(--main-infobox-border-color, rgba(51, 51, 51, 0.6));
             background-color: var(--grey-transparent-10, rgba(26, 26, 26, 0.6));
+
+            &.gold {
+                border-color: var(--yellow-transparent-20, rgba(102, 93, 0, 0.6));
+            }
 
             &.gold .benefit-box-benefits .icon {
                 color: #998B00;
             }
 
-            &.gold .benefit-box-icon .icon {
-                color: var(--main-text-tertiary-yellow, #FFF433);
-            }
-
             &.silver .benefit-box-benefits .icon {
                 color: #666666;
-            }
-
-            &.silver .benefit-box-icon .icon {
-                color: var(--main-text-secondary-color, #B2B2B2);
             }
         }
 
         .benefit-box-header {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 10px;
-            padding-bottom: 32px;
+            padding-bottom: 40px;
 
-            h3 {
+            .benefit-box-title {
                 margin: 0;
+                font-size: 22px;
+                font-weight: var(--type-weight-standard, 450);
+                line-height: 1.2;
                 color: var(--main-text-primary-color-strong, #FFF);
             }
-        }
 
-        .benefit-box-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            width: 48px;
-            height: 48px;
-            border-radius: 9px;
-            border: 1px solid var(--main-infobox-border-color, rgba(51, 51, 51, 0.6));
-            background-color: var(--main-infobox-background-color-hover, rgba(51, 51, 51, 0.6));
+            .benefit-box-price {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                margin: 0;
 
-            .icon {
-                width: 24px;
-                height: 24px;
+                .price {
+                    color: var(--main-text-primary-color-strong, #FFF);
+                }
+
+                .availability {
+                    @include body-small;
+                    line-height: 1.1;
+                    color: var(--main-text-tertiary-color, #808080);
+                }
             }
         }
 
