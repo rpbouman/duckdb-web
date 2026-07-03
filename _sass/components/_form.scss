@@ -56,6 +56,7 @@
 	.required{
 		margin-bottom: 6px;
 		text-align: right;
+		color: var(--main-text-tertiary-color, #B2B2B2);
 		@include body-small();
 	}
 
@@ -297,22 +298,24 @@
 			label {
 				position: static;
 				display: inline-block;
-				padding: 8px 20px;
+				padding: 12px 16px;
 				border-radius: 50px;
+				border: 1px solid var(--doc-codebox-border-color, #E6E6E6);
+				background: transparent;
 				cursor: pointer;
 				pointer-events: auto;
 				font-family: "SuisseIntl";
-				font-size: 18px;
+				font-size: 14px;
+				line-height: 14px;
+				letter-spacing: 0.04px;
 				font-weight: 600;
-				color: var(--main-text-secondary-color, #666);
-				background: var(--main-infobox-labs-border-color, rgba(230, 230, 230, 0.60));
+				color: var(--main-text-secondary-color, #B2B2B2);
 				transition: all 0.2s ease;
 			}
 
 			input[type="radio"]:checked + label,
 			input[type="checkbox"]:checked + label {
-				background: var(--main-text-tertiary-color, #B2B2B2);
-				color: var(--main-text-primary-color, #0D0D0D);
+				background: var(--interactive-filter-selected-background-color, #E6E6E6);
 			}
 		}
 	}
@@ -484,5 +487,8 @@
 	}
 	.form .bubble-select .bubbles label{
 		font-size: 15px;
+	}
+	.form .group.halfsize{
+		width: 100%;
 	}
 }

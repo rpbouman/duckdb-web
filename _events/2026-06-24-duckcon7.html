@@ -7,8 +7,18 @@ thumb: "/images/events/thumbs/duckcon-7-amsterdam.svg"
 image: "/images/events/thumbs/duckcon-7-amsterdam.png"
 excerpt: ""
 tags: ["DuckCon"]
-body_class: duckcon7
+body_class: duckcon
 force_dark: true
+duckcon_register_url: https://luma.com/dj4svsmm
+duckcon_menu:
+- title: Program
+  anchor: program
+- title: Speakers
+  anchor: speakers
+- title: Venue
+  anchor: venue
+- title: Sponsors
+  anchor: sponsors
 venue: "Royal Tropical Institute, Amsterdam"
 description: "We're hosting DuckCon #7 in our home town of Amsterdam on Wednesday, June 24."
 toc: false
@@ -44,7 +54,7 @@ redirect_from:
 <!--
 <section class="livestream w-large" id="livestream">
   <div class="wrap">
-    {% include duckcon7/section_header.html title="Live Stream" description="Watch the DuckCon #7 talks live from Amsterdam." %}
+    {% include duckcon/section_header.html title="Live Stream" description="Watch the DuckCon #7 talks live from Amsterdam." %}
     <div class="livestream-embed">
       <iframe src="https://www.youtube.com/embed/alp5rha0RWc" title="DuckCon #7 live stream" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
@@ -60,7 +70,7 @@ redirect_from:
 -->
 
 <section class="program w-large" id="program">
-  {% include duckcon7/section_header.html title="Program" description="Learn the latest developments about DuckDB, DuckLake and Quack." %}
+  {% include duckcon/section_header.html title="Program" description="Learn the latest developments about DuckDB, DuckLake and Quack." %}
   <div class="wrap table-section">
     {% for day in site.data.duckcon7.program %}
       <h3 class="table-section-title">{{ day.title }}</h3>
@@ -95,7 +105,7 @@ redirect_from:
 
 <section class="speakers w-large" id="speakers">
   <div class="wrap">
-    {% include duckcon7/section_header.html title="Speakers" description="Meet the creators, engineers, and users of DuckDB and DuckLake." %}
+    {% include duckcon/section_header.html title="Speakers" description="Meet the creators, engineers, and users of DuckDB and DuckLake." %}
     <ul class="speakers-list">
       {% for speaker in site.data.duckcon7.speakers %}
       <li class="speaker-item">
@@ -129,7 +139,7 @@ redirect_from:
         <a href="https://maps.app.goo.gl/vLSbNJRvKDHQs5FT8" target="_blank" rel="noopener noreferrer">Google Maps</a>
       </li>
     </ul>
-     <div class="js-duckcon7-map embedded-map" id="duckcon7-map" data-lat="52.3627833" data-lng="4.9205426" data-label="Royal Tropical Institute"></div>
+     <div class="js-duckcon-map embedded-map" id="duckcon-map" data-lat="52.3627833" data-lng="4.9205426" data-label="Royal Tropical Institute"></div>
   </div>
   <hr class="divider" />
 </section>
@@ -137,7 +147,7 @@ redirect_from:
 {% comment %}
 Sponsors – Option A: call for sponsors (use when there are no sponsors yet)
 <section class="sponsors" id="sponsors">
-  {% include duckcon7/section_header.html title="Become a sponsor for DuckCon #7" description="We are looking for sponsors – help us make DuckCon #7 a success!<br>See our <a href='http://blobs.duckdb.org/merch/duckcon-7-amsterdam-sponsorship-brochure.pdf'>sponsorship packages</a> and reach out to us." %}
+  {% include duckcon/section_header.html title="Become a sponsor for DuckCon #7" description="We are looking for sponsors – help us make DuckCon #7 a success!<br>See our <a href='http://blobs.duckdb.org/merch/duckcon-7-amsterdam-sponsorship-brochure.pdf'>sponsorship packages</a> and reach out to us." %}
   <div class="sponsors-cta">
     <a class="button yellow" href="mailto:hello@ducklabs.com?subject=DuckCon%20%237%20Sponsorship%20Inquiry">Become a Sponsor</a>
   </div>
@@ -147,7 +157,7 @@ Sponsors – Option A: call for sponsors (use when there are no sponsors yet)
 
 {% comment %} Sponsors – Option B: showcase current sponsors {% endcomment %}
 <section class="sponsors" id="sponsors">
-  {% include duckcon7/section_header.html title="Sponsors" description="We extend our sincere thanks to DuckCon #7’s gold and silver sponsors for powering this community event and supporting the future of open-source analytics." %}
+  {% include duckcon/section_header.html title="Sponsors" description="We extend our sincere thanks to DuckCon #7’s gold and silver sponsors for powering this community event and supporting the future of open-source analytics." %}
   <div class="sponsors-card">
     <p class="sponsors-tiers">
       <span class="gold">Gold supporters</span>
@@ -171,7 +181,7 @@ Sponsors – Option A: call for sponsors (use when there are no sponsors yet)
 </section>
 
 <section class="slider">
-  <div class="swiper js-duckcon7-slider">
+  <div class="swiper js-duckcon-slider">
     <div class="swiper-wrapper">
       {% for image in site.data.duckcon7.intro_slider %}
       <div class="swiper-slide">
@@ -187,15 +197,15 @@ Sponsors – Option A: call for sponsors (use when there are no sponsors yet)
 </section>
 
 <section class="reach_out" id="reach_out">
-  {% include duckcon7/section_header.html title="Any questions?" description="If you have any questions or any special requirements (e.g., dietary restrictions),<br>don't hesitate to <a href='mailto:gabor@ducklabs.com'>contact us</a>!" %}
+  {% include duckcon/section_header.html title="Any questions?" description="If you have any questions or any special requirements (e.g., dietary restrictions),<br>don't hesitate to <a href='mailto:gabor@ducklabs.com'>contact us</a>!" %}
 </section>
 
 <!--
 <section class="venue" id="venue">
-  {% include duckcon7/section_header.html title="Venue" description="" %}
+  {% include duckcon/section_header.html title="Venue" description="" %}
 </section>
 <section class="slider">
-  <div class="swiper js-duckcon7-slider">
+  <div class="swiper js-duckcon-slider">
     <div class="swiper-wrapper">
       {% for image in site.data.duckcon7.venue_slider %}
       <div class="swiper-slide">
@@ -212,7 +222,7 @@ Sponsors – Option A: call for sponsors (use when there are no sponsors yet)
 -->
 <!--
 <section class="venue-access w-large">
-  {% include duckcon7/section_header.html title="Accessing the venue" description="" %}
+  {% include duckcon/section_header.html title="Accessing the venue" description="" %}
   {% if site.data.duckcon7.venue_access %}
     <div class="wrap feature-list">
       <ul class="flexwrap feature-list">
@@ -233,7 +243,7 @@ Sponsors – Option A: call for sponsors (use when there are no sponsors yet)
 <!--
 <section class="join-us">
   <div class="card max-width-small">
-    {% include duckcon7/section_header.html title="Join us for DuckCon #7!" description="Registration for DuckCon #7 is now officially open! Limited amount of spots available." %}
+    {% include duckcon/section_header.html title="Join us for DuckCon #7!" description="Registration for DuckCon #7 is now officially open! Limited amount of spots available." %}
     <button class="button yellow">Register now</button>
   </div>
 </section>
