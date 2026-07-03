@@ -1,19 +1,9 @@
 <nav>
 
+    {% for item in page.duckcon_menu %}
     <div>
-        <a href="{% link _events/2026-06-24-duckcon7.html %}#program">Program</a>
+        <a href="{{ page.duckcon_event_url }}#{{ item.anchor }}">{{ item.title }}</a>
     </div>
-
-    <div>
-        <a href="{% link _events/2026-06-24-duckcon7.html %}#speakers">Speakers</a>
-    </div>
-
-    <div>
-        <a href="{% link _events/2026-06-24-duckcon7.html %}#venue">Venue</a>
-    </div>
-
-    <div>
-        <a href="{% link _events/2026-06-24-duckcon7.html %}#sponsors">Sponsors</a>
-    </div>
+    {% endfor %}
 
 </nav>

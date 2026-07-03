@@ -97,8 +97,8 @@
 				<div class="options">
 					{% if page.body_class contains "duckcon-sponsorship" %}
 						<a class="button yellow" href="mailto:hello@ducklabs.com?subject=DuckCon%20%238%20Sponsorship%20Inquiry">Sponsor DuckCon</a>
-					{% elsif page.body_class contains "duckcon" %}
-						<a class="button yellow" href="https://luma.com/dj4svsmm" target="_blank">Register for free</a>
+					{% elsif page.body_class contains "duckcon" and page.duckcon_register_url %}
+						<a class="button yellow" href="{{ page.duckcon_register_url }}" target="_blank">Register for free</a>
 					{% else %}
 						<a class="button yellow" href="https://ducklabs.com/contact" target="_blank">Support</a>
 						<button class="mode" data-mode="dark" aria-label="Toggle dark mode">
