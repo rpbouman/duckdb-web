@@ -45,10 +45,10 @@ docs:
     ATTACH ... (TYPE DELTA). Supports PIN_SNAPSHOT and all storage backends
     (local filesystem, S3, ABFSS, GCS).
 
-extension_star_count: 4
-extension_star_count_pretty: 4
-extension_download_count: 1015
-extension_download_count_pretty: 1.0k
+extension_star_count: 5
+extension_star_count_pretty: 5
+extension_download_count: 1072
+extension_download_count_pretty: 1.1k
 image: '/images/community_extensions/social_preview/preview_community_extension_delta_classic.png'
 layout: community_extension_doc
 ---
