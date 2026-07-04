@@ -219,10 +219,10 @@ docs:
     SELECT "order", strftime(ts, '%Y-%m-%d %H:%M:%S') AS formatted FROM events LIMIT 10 OFFSET 5
     ```
 
-extension_star_count: 5
-extension_star_count_pretty: 5
-extension_download_count: 815
-extension_download_count_pretty: 815
+extension_star_count: 6
+extension_star_count_pretty: 6
+extension_download_count: 901
+extension_download_count_pretty: 901
 image: '/images/community_extensions/social_preview/preview_community_extension_lpts.png'
 layout: community_extension_doc
 ---
