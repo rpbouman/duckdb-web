@@ -8,7 +8,7 @@ excerpt: |
 extension:
   name: ai
   description: AI functions for SQL — completions, classification, extraction, embeddings, and read-only SQL generation across local and hosted model providers
-  version: 0.3.1
+  version: 0.4.0
   language: C++
   build: cmake
   license: MIT
@@ -18,7 +18,7 @@ extension:
 
 repo:
   github: leonardovida/duckdb-ai
-  ref: 44b34ec71e03e243ddd53e370ce454476c7ce76b
+  ref: 42139d114b5513b18a6e674a9bc689b2e2762c04
 
 docs:
   hello_world: |
@@ -32,7 +32,7 @@ docs:
     CREATE SECRET openai_ai (TYPE duckdb_ai, AI_PROVIDER 'openai', API_KEY '...', MODEL 'gpt-4o-mini');
     SELECT ai_classify('invoice overdue', 'billing, support', secret := 'openai_ai');
   extended_description: |
-    duckdb_ai adds model-backed analytical functions to SQL: completions
+    The ai extension adds model-backed analytical functions to SQL: completions
     (`ai_complete`), text tasks (`ai_summarize`, `ai_classify`, `ai_extract`,
     `ai_translate`, `ai_redact`, `ai_filter`), structured output validated
     against a JSON Schema (`ai_complete_json`, `ai_complete_record`,
@@ -41,7 +41,7 @@ docs:
     and a SQL assistant that only returns parser-validated read-only `SELECT`
     statements (`ai_sql`, `ai_query_data`).
 
-    It supports local Ollama and OpenAI-compatible servers as well as OpenAI,
+    It supports local Ollama, llama.cpp, and OpenAI-compatible servers as well as OpenAI,
     Azure OpenAI, Anthropic, Gemini, Mistral, DeepSeek, OpenRouter, Databricks,
     Snowflake Cortex, and Z.ai. Credentials come from environment variables or
     DuckDB `TYPE duckdb_ai` secrets — never SQL arguments. The runtime includes
@@ -82,45 +82,45 @@ LOAD {{ page.extension.name }};
 
 <div class="extension_functions_table"></div>
 
-|       function_name        | function_type | description | comment | examples |
-|----------------------------|---------------|-------------|---------|----------|
-| ai_agg                     | aggregate     | NULL        | NULL    |          |
-| ai_classify                | scalar        | NULL        | NULL    |          |
-| ai_classify_labels         | scalar        | NULL        | NULL    |          |
-| ai_clear_cache             | table         | NULL        | NULL    |          |
-| ai_clear_usage             | table         | NULL        | NULL    |          |
-| ai_complete                | scalar        | NULL        | NULL    |          |
-| ai_complete_json           | scalar        | NULL        | NULL    |          |
-| ai_complete_record         | table         | NULL        | NULL    |          |
-| ai_completion_request_json | scalar        | NULL        | NULL    |          |
-| ai_count_tokens            | scalar        | NULL        | NULL    |          |
-| ai_embed                   | scalar        | NULL        | NULL    |          |
-| ai_embedding_request_json  | scalar        | NULL        | NULL    |          |
-| ai_explain_sql             | table         | NULL        | NULL    |          |
-| ai_extract                 | scalar        | NULL        | NULL    |          |
-| ai_extract_record          | scalar        | NULL        | NULL    |          |
-| ai_filter                  | scalar        | NULL        | NULL    |          |
-| ai_fix_grammar             | scalar        | NULL        | NULL    |          |
-| ai_fix_sql                 | table         | NULL        | NULL    |          |
-| ai_is_read_only_sql        | scalar        | NULL        | NULL    |          |
-| ai_model_prices            | table         | NULL        | NULL    |          |
-| ai_provider_base_url       | scalar        | NULL        | NULL    |          |
-| ai_provider_protocol       | scalar        | NULL        | NULL    |          |
-| ai_query_data              | table         | NULL        | NULL    |          |
-| ai_recommended_batch_size  | scalar        | NULL        | NULL    |          |
-| ai_redact                  | scalar        | NULL        | NULL    |          |
-| ai_rerank                  | scalar        | NULL        | NULL    |          |
-| ai_schema_prompt           | table         | NULL        | NULL    |          |
-| ai_secrets                 | table         | NULL        | NULL    |          |
-| ai_sentiment               | scalar        | NULL        | NULL    |          |
-| ai_similarity              | scalar        | NULL        | NULL    |          |
-| ai_sql                     | scalar        | NULL        | NULL    |          |
-| ai_summarize               | scalar        | NULL        | NULL    |          |
-| ai_summarize_agg           | aggregate     | NULL        | NULL    |          |
-| ai_translate               | scalar        | NULL        | NULL    |          |
-| ai_try_complete            | scalar        | NULL        | NULL    |          |
-| ai_usage                   | table         | NULL        | NULL    |          |
-| ai_validate_read_only_sql  | scalar        | NULL        | NULL    |          |
+|       function_name        | function_type |                                                 description                                                 | comment |                                                                      examples                                                                       |
+|----------------------------|---------------|-------------------------------------------------------------------------------------------------------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| ai_agg                     | aggregate     | Runs one completion over grouped text values and an instruction.                                            | NULL    | [SELECT ai_agg(review, 'List the top complaints') FROM reviews;]                                                                                    |
+| ai_classify                | scalar        | Chooses one label from a comma-separated VARCHAR or VARCHAR[] label list.                                   | NULL    | [SELECT ai_classify(review, ['positive', 'negative']) FROM reviews;, SELECT ai_classify(review, 'positive, negative, mixed') FROM reviews;]         |
+| ai_classify_labels         | scalar        | Chooses zero or more labels from a comma-separated VARCHAR or VARCHAR[] label list.                         | NULL    | [SELECT ai_classify_labels(review, ['shipping', 'pricing', 'quality']) FROM reviews;]                                                               |
+| ai_clear_cache             | table         | Clears per-database in-memory response and generated-SQL caches.                                            | NULL    | [SELECT * FROM ai_clear_cache();]                                                                                                                   |
+| ai_clear_usage             | table         | Clears the per-database usage event buffer.                                                                 | NULL    | [SELECT * FROM ai_clear_usage();]                                                                                                                   |
+| ai_complete                | scalar        | Calls a completion model and returns the response text.                                                     | NULL    | [SELECT ai_complete('Say hello');, SELECT ai_complete('Say hello', provider := 'ollama', model := 'llama3.2');]                                     |
+| ai_complete_json           | scalar        | Calls a completion model and validates the response as a JSON object or array.                              | NULL    | [SELECT ai_complete_json('Return a JSON object with one key named ok');]                                                                            |
+| ai_complete_record         | table         | Calls a completion model and projects a JSON object response into typed columns from a JSON Schema.         | NULL    | [SELECT * FROM ai_complete_record('Describe a duck', '{"type": "object", "properties": {"name": {"type": "string"{% raw %}}}{% endraw %}}');]       |
+| ai_completion_request_json | scalar        | Returns the completion request JSON without making a network call.                                          | NULL    | [SELECT ai_completion_request_json('Say hello');]                                                                                                   |
+| ai_count_tokens            | scalar        | Returns a local approximate token count for text.                                                           | NULL    | [SELECT ai_count_tokens('hello world');]                                                                                                            |
+| ai_embed                   | scalar        | Calls an embedding model and returns the embedding as DOUBLE[].                                             | NULL    | [SELECT ai_embed('duck');]                                                                                                                          |
+| ai_embedding_request_json  | scalar        | Returns the embedding request JSON without making a network call.                                           | NULL    | [SELECT ai_embedding_request_json('duck');]                                                                                                         |
+| ai_explain_sql             | table         | Explains one read-only DuckDB SELECT statement.                                                             | NULL    | [SELECT * FROM ai_explain_sql('SELECT 42');]                                                                                                        |
+| ai_extract                 | scalar        | Extracts requested information from text.                                                                   | NULL    | [SELECT ai_extract('Anna is 31', 'the age of the person');]                                                                                         |
+| ai_extract_record          | scalar        | Extracts one typed STRUCT per row from text using a JSON Schema.                                            | NULL    | [SELECT ai_extract_record('Anna is 31', '{"type": "object", "properties": {"age": {"type": "integer"{% raw %}}}{% endraw %}}');]                    |
+| ai_filter                  | scalar        | Evaluates a natural-language predicate against text and returns BOOLEAN.                                    | NULL    | [SELECT * FROM reviews WHERE ai_filter(review, 'mentions shipping problems');]                                                                      |
+| ai_fix_grammar             | scalar        | Rewrites text with corrected grammar, spelling, and punctuation.                                            | NULL    | [SELECT ai_fix_grammar('thes is a tst');]                                                                                                           |
+| ai_fix_sql                 | table         | Rewrites a broken query as one corrected read-only DuckDB SELECT, or rewrites one line with mode := 'line'. | NULL    | [SELECT * FROM ai_fix_sql('SELEC 42');, SELECT * FROM ai_fix_sql('SELECT amout FROM sales', error := 'column amout not found', fix_attempts := 2);] |
+| ai_is_read_only_sql        | scalar        | Returns whether SQL is one parser-valid read-only SELECT statement.                                         | NULL    | [SELECT ai_is_read_only_sql('SELECT 42');]                                                                                                          |
+| ai_model_prices            | table         | Returns the built-in provider/model pricing catalog.                                                        | NULL    | [SELECT * FROM ai_model_prices();]                                                                                                                  |
+| ai_provider_base_url       | scalar        | Returns the default base URL for a supported provider.                                                      | NULL    | [SELECT ai_provider_base_url('openai');]                                                                                                            |
+| ai_provider_protocol       | scalar        | Returns the internal protocol used for a supported provider.                                                | NULL    | [SELECT ai_provider_protocol('openai');]                                                                                                            |
+| ai_query_data              | table         | Generates one read-only SELECT at bind time and executes it as a subquery.                                  | NULL    | [SELECT * FROM ai_query_data('total sales by region');, SELECT * FROM ai_query_data('total sales by region', include_tables := ['main.sales']);]    |
+| ai_recommended_batch_size  | scalar        | Returns a conservative row batch size for rate-limited AI jobs.                                             | NULL    | [SELECT ai_recommended_batch_size(200, 100, 100000);]                                                                                               |
+| ai_redact                  | scalar        | Masks direct personal data, credentials, secrets, and payment identifiers in text.                          | NULL    | [SELECT ai_redact('Contact anna@example.com');]                                                                                                     |
+| ai_rerank                  | scalar        | Uses a completion model to score candidate relevance to a query from 0 to 1.                                | NULL    | [SELECT ai_rerank('best analytics database', 'DuckDB is an in-process analytics database');]                                                        |
+| ai_schema_prompt           | table         | Returns deterministic local catalog context for prompting SQL models.                                       | NULL    | [SELECT * FROM ai_schema_prompt();]                                                                                                                 |
+| ai_secrets                 | table         | Lists configured duckdb_ai secrets with credentials redacted.                                               | NULL    | [SELECT * FROM ai_secrets();]                                                                                                                       |
+| ai_sentiment               | scalar        | Classifies text sentiment as positive, neutral, or negative.                                                | NULL    | [SELECT ai_sentiment(review) FROM reviews;]                                                                                                         |
+| ai_similarity              | scalar        | Embeds two strings and returns their cosine similarity.                                                     | NULL    | [SELECT ai_similarity('duck', 'goose');]                                                                                                            |
+| ai_sql                     | scalar        | Generates one read-only DuckDB SELECT statement from a natural-language question.                           | NULL    | [SELECT ai_sql('total sales by region');, SELECT ai_sql('total sales by region', include_tables := ['main.sales'], fix_attempts := 2);]             |
+| ai_summarize               | scalar        | Summarizes text with a completion model.                                                                    | NULL    | [SELECT ai_summarize(review) FROM reviews;]                                                                                                         |
+| ai_summarize_agg           | aggregate     | Summarizes grouped text values with one completion call.                                                    | NULL    | [SELECT ai_summarize_agg(review) FROM reviews;]                                                                                                     |
+| ai_translate               | scalar        | Translates text to the target language.                                                                     | NULL    | [SELECT ai_translate('Hello', 'French');]                                                                                                           |
+| ai_try_complete            | scalar        | Calls a completion model and returns STRUCT(response, error) so row-level failures can be captured.         | NULL    | [SELECT ai_try_complete('Say hello');]                                                                                                              |
+| ai_usage                   | table         | Returns recent per-database AI usage events.                                                                | NULL    | [SELECT * FROM ai_usage();]                                                                                                                         |
+| ai_validate_read_only_sql  | scalar        | Returns normalized SQL or raises an error if it is not one read-only SELECT statement.                      | NULL    | [SELECT ai_validate_read_only_sql('SELECT 42');]                                                                                                    |
 
 ### Overloaded Functions
 
@@ -144,8 +144,10 @@ This extension does not add any types.
 | duckdb_ai_allowed_hosts                  | Comma-separated AI provider host allowlist for duckdb_ai; empty allows all hosts                                         | VARCHAR    | GLOBAL | []      |
 | duckdb_ai_base_url                       | Default AI provider base URL override for duckdb_ai                                                                      | VARCHAR    | GLOBAL | []      |
 | duckdb_ai_cache                          | Cache successful AI provider responses in the current DuckDB instance                                                    | BOOLEAN    | GLOBAL | []      |
+| duckdb_ai_cache_max_entries              | Maximum response-cache entries between 0 and 1000000; 0 disables response-cache storage, -1 uses default                 | BIGINT     | GLOBAL | []      |
 | duckdb_ai_cache_ttl_seconds              | Maximum response-cache entry age in seconds between 0 and 31536000; 0 disables age expiry, -1 uses default               | BIGINT     | GLOBAL | []      |
 | duckdb_ai_completion_model               | Default AI model for completion functions                                                                                | VARCHAR    | GLOBAL | []      |
+| duckdb_ai_connect_timeout_seconds        | AI provider connection timeout in seconds between 1 and 31536000; -1 uses default                                        | BIGINT     | GLOBAL | []      |
 | duckdb_ai_embedding_model                | Default AI model for embedding functions                                                                                 | VARCHAR    | GLOBAL | []      |
 | duckdb_ai_input_token_price_per_million  | Input token price per million tokens for estimated AI usage cost; -1 disables cost estimates                             | DOUBLE     | GLOBAL | []      |
 | duckdb_ai_log_endpoint                   | HTTP endpoint for privacy-minimized AI usage logs                                                                        | VARCHAR    | GLOBAL | []      |
