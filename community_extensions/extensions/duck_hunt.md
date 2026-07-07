@@ -178,10 +178,10 @@ docs:
 
     Perfect for CI/CD analysis, automated debugging, test aggregation, quality gates, and agent-driven development workflows.
 
-extension_star_count: 3
-extension_star_count_pretty: 3
-extension_download_count: 986
-extension_download_count_pretty: 986
+extension_star_count: 4
+extension_star_count_pretty: 4
+extension_download_count: 970
+extension_download_count_pretty: 970
 image: '/images/community_extensions/social_preview/preview_community_extension_duck_hunt.png'
 layout: community_extension_doc
 ---
