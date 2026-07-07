@@ -108,10 +108,10 @@ docs:
     - duck_lineage_timeout: HTTP request timeout in seconds (default: 10)
     - duck_lineage_exclude_dataset_prefixes: comma-separated dataset prefixes to exclude from lineage
 
-extension_star_count: 77
-extension_star_count_pretty: 77
-extension_download_count: 962
-extension_download_count_pretty: 962
+extension_star_count: 78
+extension_star_count_pretty: 78
+extension_download_count: 955
+extension_download_count_pretty: 955
 image: '/images/community_extensions/social_preview/preview_community_extension_duck_lineage.png'
 layout: community_extension_doc
 ---

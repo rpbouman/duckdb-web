@@ -34,10 +34,10 @@ docs:
     Inputs may use numeric, decimal, date, and timestamp types. The sampled output preserves
     the input `x` and `y` types as `STRUCT(x, y)[]`.
 
-extension_star_count: 1
-extension_star_count_pretty: 1
-extension_download_count: 200
-extension_download_count_pretty: 200
+extension_star_count: 2
+extension_star_count_pretty: 2
+extension_download_count: 401
+extension_download_count_pretty: 401
 image: '/images/community_extensions/social_preview/preview_community_extension_lttb.png'
 layout: community_extension_doc
 ---

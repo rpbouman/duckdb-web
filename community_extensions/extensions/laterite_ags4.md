@@ -8,7 +8,7 @@ excerpt: |
 extension:
   name: laterite_ags4
   description: Read AGS4 geotechnical data files as typed, UUID-keyed tables directly from SQL — born-typed columns, deterministic content-addressed keys that join across groups by construction, embedded AGS dictionary, and opt-in validation. Local, http(s):// and s3:// (with httpfs).
-  version: 0.5.0
+  version: 0.6.2
   language: Rust
   build: cargo
   license: MIT
@@ -30,7 +30,7 @@ repo:
   github: niko86/laterite-duckdb
   # Pin to the release commit SHA once the repo is pushed + tagged (community-
   # extensions pins a SHA, not a branch). Placeholder until then:
-  ref: 35275386640d76c0f726c8df60b48d65057a3bef
+  ref: 6bb4057eacefe931623df0a09a50c8650ebab92f
 
 docs:
   hello_world: |
@@ -91,17 +91,21 @@ docs:
     | `ags_relationships()` | `(child, parent, shared_keys)` — the spec parent→child graph that `_parent_id` follows. |
     | `validate_ags(path[, dict_version := '4.2'][, warnings := true][, fyi := true])` | `(rule, line, group, severity, desc)` — a clean-room AGS4 rule check; the edition auto-detects from `TRAN_AGS` unless forced, and only `error`-severity findings show unless the `warnings` / `fyi` tiers are opted in. |
     | `certify_ags(path[, dict_version := '4.2'])` | validate, then mint a sibling `.ags.idx` certificate; returns a one-row status (`certified`, `groups`/`errors`/`warnings`/`fyi` counts, `dict_version`, `message`). |
+    | `validate_ags_text(content[, dict_version := '4.2'][, warnings := true][, fyi := true])` | the same rule check as `validate_ags`, over an **inline AGS4 string** (no filesystem) — the twin of `read_ags_text`. |
+    | `certify_ags_text(content[, dict_version := '4.2'])` | validate an inline AGS4 string and, when clean, return the `.ags.idx` certificate **JSON in a `cert` column** (nothing written to disk) — the in-memory analog of `certify_ags`. |
     | `load_ags_script(path)` | `(seq, stmt)` — CREATE-TABLE DDL to materialise every group into an indexed, repeat-/remote-queryable store. |
 
     Readers stream lazily (≈2048-row vector chunks); a non-conforming numeric cell becomes
     `NULL`, never an error (the born-typed behaviour). Optional arguments are **named**
-    (`dict_version := '4.2'`, `warnings := true`), the rest positional. There is no repair
-    surface — mutation stays in the `lat-check` CLI / the `laterite` library.
+    (`dict_version := '4.2'`, `warnings := true`), the rest positional. The path verbs
+    take an `encoding` named param (e.g. `encoding := 'windows-1252'`) for non-UTF-8
+    sources; the `_text` variants are UTF-8 (their input is already a `VARCHAR`). There
+    is no repair surface — mutation stays in the `lat-check` CLI / the `laterite` library.
 
 extension_star_count: 0
 extension_star_count_pretty: 0
-extension_download_count: 447
-extension_download_count_pretty: 447
+extension_download_count: 438
+extension_download_count_pretty: 438
 image: '/images/community_extensions/social_preview/preview_community_extension_laterite_ags4.png'
 layout: community_extension_doc
 ---
@@ -133,11 +137,14 @@ LOAD {{ page.extension.name }};
 | ags_groups        | table         | NULL        | NULL    |          |
 | ags_headings      | table         | NULL        | NULL    |          |
 | ags_relationships | table         | NULL        | NULL    |          |
+| ags_rules         | table         | NULL        | NULL    |          |
 | certify_ags       | table         | NULL        | NULL    |          |
+| certify_ags_text  | table         | NULL        | NULL    |          |
 | load_ags_script   | table         | NULL        | NULL    |          |
 | read_ags          | table         | NULL        | NULL    |          |
 | read_ags_text     | table         | NULL        | NULL    |          |
 | validate_ags      | table         | NULL        | NULL    |          |
+| validate_ags_text | table         | NULL        | NULL    |          |
 
 ### Overloaded Functions
 

@@ -42,8 +42,8 @@ docs:
 
 extension_star_count: 7
 extension_star_count_pretty: 7
-extension_download_count: 865
-extension_download_count_pretty: 865
+extension_download_count: 739
+extension_download_count_pretty: 739
 image: '/images/community_extensions/social_preview/preview_community_extension_duckdb_zarr.png'
 layout: community_extension_doc
 ---

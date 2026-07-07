@@ -38,10 +38,10 @@ docs:
     - `fit_events(filename)` - Activity events and markers
     - `fit_users(filename)` - User profile information
 
-extension_star_count: 2
-extension_star_count_pretty: 2
-extension_download_count: 798
-extension_download_count_pretty: 798
+extension_star_count: 3
+extension_star_count_pretty: 3
+extension_download_count: 705
+extension_download_count_pretty: 705
 image: '/images/community_extensions/social_preview/preview_community_extension_fit.png'
 layout: community_extension_doc
 ---
