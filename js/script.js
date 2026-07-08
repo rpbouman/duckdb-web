@@ -604,21 +604,30 @@ $('body.documentation #main_content_wrap a.externallink').each(function () {
 	
 	
 	// CHANGE DOC VERSION
-	$('.options .version').click(function(){
-		var $this = $(this);
-		$this.toggleClass('active');
-		$this.find('.versionsidebar').slideToggle(200);
-		
-		// MAKE IT SAME AS ON START PAGE
-		var selectedVersion = $this.find('.selectedversion');
-		var currentVersion = selectedVersion.attr('data-current');
-	
-		selectedVersion.text($this.hasClass('active') ? 'Select' : currentVersion);
-	
-		$this.find('.versionsidebar li').removeClass('current') 
-			.filter(function() { 
-				return $(this).text().trim() === currentVersion; 
-			}).addClass('current');
+	function closeVersionSelect() {
+		var $open = $('.options .version.active');
+		if (!$open.length) return false;
+		$open.removeClass('active').find('.versiontrigger').attr('aria-expanded', 'false');
+		return true;
+	}
+
+	$('.options .version .versiontrigger').click(function(){
+		var $version = $(this).closest('.version');
+		var open = !$version.hasClass('active');
+		$version.toggleClass('active', open);
+		$(this).attr('aria-expanded', open ? 'true' : 'false');
+	});
+
+	$(document).on('click', function(e){
+		if ($(e.target).closest('.options .version').length) return;
+		closeVersionSelect();
+	});
+
+	$(document).on('keydown', function(e){
+		if (e.key !== 'Escape') return;
+		if (closeVersionSelect()) {
+			$('.options .version .versiontrigger').trigger('focus');
+		}
 	});
 	
 	
