@@ -148,7 +148,7 @@ body.notfoundv2{
 		padding: 13px 10px 13px 20px;
 		background: var(--main-blogpost-background-color, #ffffff);
 		border: 1px solid var(--main-codebox-border-color, #0d0d0d14);
-		border-radius: 60px;
+		border-radius: var(--radius-pill);
 		cursor: pointer;
 		font: inherit;
 		text-align: left;
@@ -216,7 +216,7 @@ body.notfoundv2{
 		width: 75px;
 		height: 75px;
 		border: 1px solid var(--interactive-installation-box-border, rgba(204, 189, 0, 0.6));
-		border-radius: 15px;
+		border-radius: var(--border-radius-box);
 		background: linear-gradient(180deg, #fdef00 0%, #fffaa3 94%);
 		display: flex;
 		align-items: center;
@@ -279,7 +279,7 @@ body.notfoundv2{
 		.notfoundv2-card__icon{
 			width: 60px;
 			height: 60px;
-			border-radius: 12px;
+			border-radius: var(--border-radius-box-inner);
 		}
 		.notfoundv2-card__title{
 			font-size: 19px;
