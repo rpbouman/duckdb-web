@@ -335,7 +335,9 @@ body.documentation {
 
 // Version sidebar
 .versionsidebar {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(4px);
     position: absolute;
     top: calc(100% + 4px);
     z-index: 700;
@@ -346,6 +348,13 @@ body.documentation {
     border-radius: var(--border-radius-box);
     padding: 2px;
     right: 0;
+    min-width: 100%;
+    box-sizing: border-box;
+    transition: opacity .15s ease, transform .15s ease, visibility 0s linear .15s;
+
+    @media (prefers-reduced-motion: reduce) {
+        transition: none;
+    }
 
     >ul {
         color: var(--main-text-primary-color, #F2F2F2);
@@ -366,9 +375,12 @@ body.documentation {
                 border-radius: var(--radius-pill);
                 text-decoration: none !important;
                 cursor: pointer;
-                padding: 5px 12px;
-                display: inline-block;
+                padding: 7px 14px;
+                display: flex;
+                align-items: center;
+                gap: 5px;
                 width: 100%;
+                box-sizing: border-box;
                 color: var(--main-text-primary-color, #F2F2F2) !important;
                 transition: background-color .3s;
                 white-space: nowrap;
@@ -384,14 +396,25 @@ body.documentation {
                 color: var(--main-text-primary-color, #F2F2F2) !important;
                 background: var(--menu-dropdown-item-background-hover, #333);
                 border-radius: var(--border-radius-box);
+
+                svg.icon {
+                    width: 12px;
+                    height: 12px;
+                    flex-shrink: 0;
+                    margin-left: auto;
+                    stroke-width: 2.2;
+                    color: var(--main-text-secondary-color, #B2B2B2);
+                }
             }
         }
     }
+}
 
-    &:hover {
-        transform: translateX(0px);
-    }
-    
+.version.active .versionsidebar {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0s;
 }
 
 // Responsive styles
