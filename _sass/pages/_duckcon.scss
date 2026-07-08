@@ -491,7 +491,7 @@
             max-width: var(--page-max-width-large, 1150px);
             margin: 45px auto 0;
             padding: var(--page-margin-l, 32px);
-            border-radius: 15px;
+            border-radius: var(--border-radius-box);
             border: 1px solid var(--main-infobox-border-color, rgba(51, 51, 51, 0.6));
             background-color: var(--grey-transparent-10, rgba(26, 26, 26, 0.6));
             text-align: center;
@@ -634,7 +634,7 @@
                 font-size: 15px;
                 font-weight: 600;
                 padding: 10px;
-                border-radius: 44px;
+                border-radius: var(--radius-pill);
                 color: var(--main-body-background-color);
                 white-space: nowrap;
             }
@@ -691,7 +691,7 @@
         .benefit-box {
             flex: 1;
             padding: 32px;
-            border-radius: 15px;
+            border-radius: var(--border-radius-box);
             border: 1px solid var(--main-infobox-border-color, rgba(51, 51, 51, 0.6));
             background-color: var(--grey-transparent-10, rgba(26, 26, 26, 0.6));
 

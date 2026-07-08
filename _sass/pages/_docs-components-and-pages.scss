@@ -24,7 +24,7 @@ body.documentation {
         height: 17px;
         line-height: 17px;
         padding: 0 5px;
-        border-radius: 50px;
+        border-radius: var(--radius-pill);
         font-size: 10px;
         color: black;
         margin-left: 2px;
@@ -71,7 +71,7 @@ body.documentation {
                 font-size: 13px;
                 padding: 4px 9px;
                 border: 1px solid white;
-                border-radius: 50px;
+                border-radius: var(--radius-pill);
                 white-space: nowrap;
                 transition: all .3s;
 
@@ -203,7 +203,7 @@ body.documentation {
     body.documentation main .wrap a.pill {
         background-color: #F3F3F3;
         font-size: 12px;
-        border-radius: 50px;
+        border-radius: var(--radius-pill);
         padding: .3em .8em;
         text-decoration: none;
         margin-left: 5px;
@@ -263,7 +263,7 @@ body.documentation {
             @include tiny();
             color: var(--menu-topmenu-searchbar-shortcut-text-color, #999);
             padding: 5px 7px;
-            border-radius: 10px;
+            border-radius: var(--border-radius-box-inner);
             border: 1px solid var(--doc-codebox-border-color, #E6E6E6);
 
             &.mac {
@@ -468,7 +468,7 @@ body.documentation {
         flex-shrink: 0;
         width: 40px;
         height: 40px;
-        border-radius: 10px;
+        border-radius: var(--border-radius-box-inner);
         border: 0.747px solid var(--main-codebox-border-color, #E6E6E6);
         background: var(--main-codebox-sub-background-color, rgba(230, 230, 230, 0.60));
         display: flex;

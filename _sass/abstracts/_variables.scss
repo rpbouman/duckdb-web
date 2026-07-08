@@ -634,14 +634,16 @@ html.darkmode {
 :root {
   --type-weight-standard: 450;
   /* Desktop */
-  --page-border-radius-quaternary: 8px;
+  --radius-xs: 3px;
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 15px;
+  --radius-pill: 999px;
+  --border-radius-box: var(--radius-l);
+  --border-radius-box-inner: var(--radius-m);
   --page-margin-xs: 8px;
-  --page-border-radius-tertiary: 10px;
-  --page-border-radius-secodary: 12px;
   --page-box-padding-quaternary: 12px;
   --page-margin-s: 12px;
-  --page-border-radius-primary: 16px;
-  --border-radius-box: 15px;
   --page-box-padding-tertiary: 16px;
   --page-box-padding-secodary: 20px;
   --page-element-spacing-small: 20px;
@@ -689,11 +691,8 @@ html.darkmode {
     --type-weight-standard: 400;
     /* Mobile */
     --page-margin-xs: 4px;
-    --page-border-radius-quaternary: 6px;
-    --page-border-radius-primary: 8px;
-    --page-border-radius-secodary: 8px;
-    --page-border-radius-tertiary: 8px;
-    --border-radius-box: 10px;
+    --radius-m: 8px;
+    --radius-l: 10px;
     --page-box-padding-quaternary: 8px;
     --page-margin-s: 8px;
     --page-box-padding-tertiary: 12px;

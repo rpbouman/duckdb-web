@@ -139,7 +139,7 @@ body.documentation {
                 color: var(--main-text-tertiary-color, #B2B2B2);
                 text-decoration: none;
                 padding: 6px 12px;
-                border-radius: 100px;
+                border-radius: var(--radius-pill);
                 display: inline-block;
                 text-overflow: ellipsis;
                 overflow: hidden;
@@ -211,7 +211,7 @@ body.documentation {
             cursor: pointer;
             position: relative;
             display: block;
-            border-radius: 5px;
+            border-radius: var(--radius-s);
 
             &.active {
                 background: var(--doc-sidebar-selected-background-color, #F2F2F2);
@@ -236,7 +236,7 @@ body.documentation {
                 padding: 5px 8px;
                 position: relative;
                 display: block;
-                border-radius: 5px;
+                border-radius: var(--radius-s);
 
                 &:hover {
                     background: rgba(0, 0, 0, 0.06);
@@ -363,7 +363,7 @@ body.documentation {
             }
 
             a {
-                border-radius: 50px;
+                border-radius: var(--radius-pill);
                 text-decoration: none !important;
                 cursor: pointer;
                 padding: 5px 12px;
