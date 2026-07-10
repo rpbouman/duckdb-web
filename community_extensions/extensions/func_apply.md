@@ -92,8 +92,8 @@ docs:
 
 extension_star_count: 3
 extension_star_count_pretty: 3
-extension_download_count: 856
-extension_download_count_pretty: 856
+extension_download_count: 839
+extension_download_count_pretty: 839
 image: '/images/community_extensions/social_preview/preview_community_extension_func_apply.png'
 layout: community_extension_doc
 ---

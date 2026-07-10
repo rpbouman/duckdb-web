@@ -8,7 +8,7 @@ excerpt: |
 extension:
   name: dta
   description: Read and write Stata .dta files (formats 117-121, Stata 13-18) with full type mapping, value labels, and strL support.
-  version: 0.1.0
+  version: 0.1.1
   language: C++
   build: cmake
   license: MIT
@@ -17,7 +17,7 @@ extension:
 
 repo:
   github: codedthinking/duckdb-dta
-  ref: d7727aa449377c04aa6cac96d3cfa8753e66fbbe
+  ref: 635637253f0954dbd091bfb0a87877ea8cab1787
 
 docs:
   hello_world: |
@@ -54,8 +54,8 @@ docs:
 
 extension_star_count: 0
 extension_star_count_pretty: 0
-extension_download_count: 817
-extension_download_count_pretty: 817
+extension_download_count: 690
+extension_download_count_pretty: 690
 image: '/images/community_extensions/social_preview/preview_community_extension_dta.png'
 layout: community_extension_doc
 ---
