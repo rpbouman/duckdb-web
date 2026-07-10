@@ -50,8 +50,8 @@ docs:
 
 extension_star_count: 105
 extension_star_count_pretty: 105
-extension_download_count: 902
-extension_download_count_pretty: 902
+extension_download_count: 878
+extension_download_count_pretty: 878
 image: '/images/community_extensions/social_preview/preview_community_extension_psql.png'
 layout: community_extension_doc
 ---

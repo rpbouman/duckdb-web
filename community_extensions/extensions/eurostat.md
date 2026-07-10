@@ -149,8 +149,8 @@ docs:
 
 extension_star_count: 32
 extension_star_count_pretty: 32
-extension_download_count: 932
-extension_download_count_pretty: 932
+extension_download_count: 847
+extension_download_count_pretty: 847
 image: '/images/community_extensions/social_preview/preview_community_extension_eurostat.png'
 layout: community_extension_doc
 ---

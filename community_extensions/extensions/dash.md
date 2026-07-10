@@ -35,10 +35,10 @@ docs:
     Dash also supports interactive widgets: Visualize a query as a Dropdown, and macros referencing it will automatically filter to the selected value.
     
     →  [GitHub](https://github.com/gropaul/dash) · [Web Version](https://www.app.dash.builders/) · [Documentation & Demo](https://www.dash.builders/)
-extension_star_count: 72
-extension_star_count_pretty: 72
-extension_download_count: 950
-extension_download_count_pretty: 950
+extension_star_count: 73
+extension_star_count_pretty: 73
+extension_download_count: 879
+extension_download_count_pretty: 879
 image: '/images/community_extensions/social_preview/preview_community_extension_dash.png'
 layout: community_extension_doc
 ---

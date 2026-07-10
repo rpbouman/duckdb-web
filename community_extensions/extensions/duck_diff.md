@@ -81,10 +81,10 @@ docs:
     See the [function reference](https://github.com/avaitla/duck_diff/blob/main/docs/functions.md)
     for full documentation.
 
-extension_star_count: 3
-extension_star_count_pretty: 3
-extension_download_count: 509
-extension_download_count_pretty: 509
+extension_star_count: 4
+extension_star_count_pretty: 4
+extension_download_count: 495
+extension_download_count_pretty: 495
 image: '/images/community_extensions/social_preview/preview_community_extension_duck_diff.png'
 layout: community_extension_doc
 ---

@@ -42,8 +42,8 @@ docs:
 
 extension_star_count: 0
 extension_star_count_pretty: 0
-extension_download_count: 33
-extension_download_count_pretty: 33
+extension_download_count: 168
+extension_download_count_pretty: 168
 image: '/images/community_extensions/social_preview/preview_community_extension_rrd.png'
 layout: community_extension_doc
 ---

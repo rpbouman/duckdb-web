@@ -60,10 +60,10 @@ docs:
     - [Documentation](https://github.com/jatorre/duckdb-raquet#readme)
     - [Performance Benchmarks](https://github.com/jatorre/duckdb-raquet/blob/main/docs/PERFORMANCE_COMPARISON.md)
 
-extension_star_count: 13
-extension_star_count_pretty: 13
-extension_download_count: 857
-extension_download_count_pretty: 857
+extension_star_count: 14
+extension_star_count_pretty: 14
+extension_download_count: 898
+extension_download_count_pretty: 898
 image: '/images/community_extensions/social_preview/preview_community_extension_raquet.png'
 layout: community_extension_doc
 ---

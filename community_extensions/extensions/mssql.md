@@ -59,10 +59,10 @@ docs:
     - Named SQL Server instance resolution via SQL Server Browser (UDP 1434)
     - XML data type read/write support
 
-extension_star_count: 118
-extension_star_count_pretty: 118
-extension_download_count: 7144
-extension_download_count_pretty: 7.1k
+extension_star_count: 120
+extension_star_count_pretty: 120
+extension_download_count: 7494
+extension_download_count_pretty: 7.5k
 image: '/images/community_extensions/social_preview/preview_community_extension_mssql.png'
 layout: community_extension_doc
 ---
