@@ -114,8 +114,8 @@ FROM postgres_configure_pool(catalog_name='db1', acquire_mode='wait', max_connec
 postgres_execute(attached_db_name VARCHAR, sql_query VARCHAR[, <optional named parameters>]) -> TABLE
 ```
 
-Executes the query in the speicifed remote DB that was previosly attached with `ATTACH .. AS <attached_db_name>`.
-Does not return the query result.
+Executes the the `<sql_query>` in the specified remote Postgres instance previously attached with `ATTACH .. AS <attached_db_name>`.
+This function returns an empty result.
 
 #### Parameters
 
