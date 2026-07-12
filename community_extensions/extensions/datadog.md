@@ -55,10 +55,10 @@ docs:
     Logs are supported today; traces/spans and metrics are planned. For full documentation, visit the
     [extension repository](https://github.com/smithclay/duckdb-datadog).
 
-extension_star_count: 1
-extension_star_count_pretty: 1
-extension_download_count: 31
-extension_download_count_pretty: 31
+extension_star_count: 2
+extension_star_count_pretty: 2
+extension_download_count: 198
+extension_download_count_pretty: 198
 image: '/images/community_extensions/social_preview/preview_community_extension_datadog.png'
 layout: community_extension_doc
 ---

@@ -62,8 +62,8 @@ docs:
 
 extension_star_count: 14
 extension_star_count_pretty: 14
-extension_download_count: 898
-extension_download_count_pretty: 898
+extension_download_count: 826
+extension_download_count_pretty: 826
 image: '/images/community_extensions/social_preview/preview_community_extension_raquet.png'
 layout: community_extension_doc
 ---
