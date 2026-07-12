@@ -148,8 +148,8 @@ docs:
 
 extension_star_count: 2
 extension_star_count_pretty: 2
-extension_download_count: 803
-extension_download_count_pretty: 803
+extension_download_count: 775
+extension_download_count_pretty: 775
 image: '/images/community_extensions/social_preview/preview_community_extension_spxlsx.png'
 layout: community_extension_doc
 ---

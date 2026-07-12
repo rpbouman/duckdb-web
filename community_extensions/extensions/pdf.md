@@ -8,7 +8,7 @@ excerpt: |
 extension:
   name: pdf
   description: Read text, metadata, words, lines, tables, layout elements, and markdown from PDF files (works on scanned PDFs via Tesseract OCR word boxes); chunk for retrieval; render pages; inspect outlines, attachments, form fields, annotations, revisions, and signatures; extract embedded images; merge, split, rotate, compress, encrypt, decrypt, watermark, and Bates-stamp documents via qpdf; write PDFs natively via libharu (`write_pdf` / `COPY … TO FORMAT pdf`); and convert office documents to PDF.
-  version: 0.5.0
+  version: 0.5.1
   language: C++
   build: cmake
   license: GPL-2.0-or-later
@@ -24,7 +24,7 @@ extension:
 
 repo:
   github: asubbarao/duckdb-pdf
-  ref: 9006e9388fa5d7c8e5e1816ac4e9a7a6e5b6e8e0
+  ref: 177b634edbcf7e3fdbd7068f4a72455073fba67c
 
 docs:
   hello_world: |
@@ -230,8 +230,8 @@ docs:
 
 extension_star_count: 3
 extension_star_count_pretty: 3
-extension_download_count: 413
-extension_download_count_pretty: 413
+extension_download_count: 332
+extension_download_count_pretty: 332
 image: '/images/community_extensions/social_preview/preview_community_extension_pdf.png'
 layout: community_extension_doc
 ---
@@ -257,21 +257,43 @@ LOAD {{ page.extension.name }};
 
 <div class="extension_functions_table"></div>
 
-|  function_name  | function_type | description | comment | examples |
-|-----------------|---------------|-------------|---------|----------|
-| pdf_to_html     | scalar        | NULL        | NULL    |          |
-| pdf_to_markdown | scalar        | NULL        | NULL    |          |
-| pdf_to_png      | scalar        | NULL        | NULL    |          |
-| pdf_to_svg      | scalar        | NULL        | NULL    |          |
-| pdf_to_text     | scalar        | NULL        | NULL    |          |
-| pdf_to_xml      | scalar        | NULL        | NULL    |          |
-| read_pdf        | table         | NULL        | NULL    |          |
-| read_pdf_lines  | table         | NULL        | NULL    |          |
-| read_pdf_meta   | table         | NULL        | NULL    |          |
-| read_pdf_tables | table         | NULL        | NULL    |          |
-| read_pdf_words  | table         | NULL        | NULL    |          |
-| to_pdf          | scalar        | NULL        | NULL    |          |
-| write_pdf       | scalar        | NULL        | NULL    |          |
+|   function_name   | function_type | description | comment | examples |
+|-------------------|---------------|-------------|---------|----------|
+| pdf_annotations   | table         | NULL        | NULL    |          |
+| pdf_attachments   | table         | NULL        | NULL    |          |
+| pdf_bates         | scalar        | NULL        | NULL    |          |
+| pdf_chunks        | table         | NULL        | NULL    |          |
+| pdf_compress      | scalar        | NULL        | NULL    |          |
+| pdf_decrypt       | scalar        | NULL        | NULL    |          |
+| pdf_encrypt       | scalar        | NULL        | NULL    |          |
+| pdf_form_fields   | table         | NULL        | NULL    |          |
+| pdf_images        | table         | NULL        | NULL    |          |
+| pdf_info          | table         | NULL        | NULL    |          |
+| pdf_merge         | scalar        | NULL        | NULL    |          |
+| pdf_outline       | table         | NULL        | NULL    |          |
+| pdf_pages         | scalar        | NULL        | NULL    |          |
+| pdf_redact        | table         | NULL        | NULL    |          |
+| pdf_revisions     | table         | NULL        | NULL    |          |
+| pdf_rotate        | scalar        | NULL        | NULL    |          |
+| pdf_sign          | table         | NULL        | NULL    |          |
+| pdf_signatures    | table         | NULL        | NULL    |          |
+| pdf_split         | table         | NULL        | NULL    |          |
+| pdf_split_blank   | table         | NULL        | NULL    |          |
+| pdf_to_html       | scalar        | NULL        | NULL    |          |
+| pdf_to_markdown   | scalar        | NULL        | NULL    |          |
+| pdf_to_png        | scalar        | NULL        | NULL    |          |
+| pdf_to_svg        | scalar        | NULL        | NULL    |          |
+| pdf_to_text       | scalar        | NULL        | NULL    |          |
+| pdf_to_xml        | scalar        | NULL        | NULL    |          |
+| pdf_watermark     | scalar        | NULL        | NULL    |          |
+| read_pdf          | table         | NULL        | NULL    |          |
+| read_pdf_elements | table         | NULL        | NULL    |          |
+| read_pdf_lines    | table         | NULL        | NULL    |          |
+| read_pdf_meta     | table         | NULL        | NULL    |          |
+| read_pdf_tables   | table         | NULL        | NULL    |          |
+| read_pdf_words    | table         | NULL        | NULL    |          |
+| to_pdf            | scalar        | NULL        | NULL    |          |
+| write_pdf         | scalar        | NULL        | NULL    |          |
 
 ### Overloaded Functions
 
