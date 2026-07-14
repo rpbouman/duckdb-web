@@ -347,6 +347,7 @@ $(document).ready(function(){
 
     
     // FAQs
+	$('.qa-wrap h3').append('<span class="faq-icon"><svg class="icon"><use href="#chevron-down"></use></svg></span>');
 	$('.qa-wrap').click(function(event) {
 		var $qaWrap = $(this);
 		if ($(event.target).is('h3') || $(event.target).closest('h3').length) {
@@ -630,6 +631,41 @@ $('body.documentation #main_content_wrap a.externallink').each(function () {
 			$('.options .version .versiontrigger').trigger('focus');
 		}
 	});
+
+	// COPY PAGE AS MARKDOWN
+	$('.headlinebar .copy-markdown').click(function(){
+		var $btn = $(this);
+		if ($btn.hasClass('copied')) return;
+
+		var markdownPromise = fetch($btn.attr('data-source')).then(function(response){
+			if (!response.ok) throw new Error('HTTP ' + response.status);
+			return response.text();
+		});
+
+		function markCopied() {
+			$btn.addClass('copied');
+			$btn.find('use').attr('href', '#check');
+			$btn.find('span').text('Copied');
+			setTimeout(function(){
+				$btn.removeClass('copied');
+				$btn.find('use').attr('href', '#copy-01');
+				$btn.find('span').text('Copy Markdown');
+			}, 2000);
+		}
+
+		if (navigator.clipboard && window.ClipboardItem) {
+			var item = new ClipboardItem({
+				'text/plain': markdownPromise.then(function(text){
+					return new Blob([text], { type: 'text/plain' });
+				})
+			});
+			navigator.clipboard.write([item]).then(markCopied);
+		} else if (navigator.clipboard) {
+			markdownPromise.then(function(text){
+				return navigator.clipboard.writeText(text);
+			}).then(markCopied);
+		}
+	});
 	
 	
 	
@@ -900,19 +936,25 @@ $('body.documentation #main_content_wrap a.externallink').each(function () {
 	}
 	
 	/** CUSTOM SELECT ON HOME **/
-	var generateSelectBoxes = function(){   
+	function closeCustomSelects() {
+		$('div.select-styled.active').removeClass('active').attr('aria-expanded', 'false');
+	}
+
+	var generateSelectBoxes = function(){
+		var checkIcon = '<svg class="icon check"><use href="#check"></use></svg>';
+
 		$('body.landing select').each(function() {
 			var $this = $(this),
 				numberOfOptions = $(this).children('option').length;
-	
+
 			$this.addClass('select-hidden');
-			$this.after('<div class="select-styled">' + ($this.children('option:selected').text() || 'Select') + '</div>'); 
-	
+			$this.after('<div class="select-styled" role="button" tabindex="0" aria-haspopup="listbox" aria-expanded="false"><span class="label">' + ($this.children('option:selected').text() || 'Select') + '</span><svg class="arrow"><use href="#chevron-down"></use></svg></div>');
+
 			var $styledSelect = $this.next('div.select-styled');
 			var $list = $('<ul />', {
 				'class': 'select-options'
 			}).insertAfter($styledSelect);
-	
+
 			for (var i = 0; i < numberOfOptions; i++) {
 				$('<li />', {
 					text: $this.children('option').eq(i).text(),
@@ -922,49 +964,60 @@ $('body.documentation #main_content_wrap a.externallink').each(function () {
 					$('li[rel="' + $this.children('option').eq(i).val() + '"]').addClass('is-selected');
 				}
 			}
-	
+
 			var $listItems = $list.children('li');
-	
+			$list.find('li.is-selected').append(checkIcon);
+
+			function toggleSelect() {
+				var open = !$styledSelect.hasClass('active');
+				closeCustomSelects();
+				$styledSelect.toggleClass('active', open).attr('aria-expanded', open ? 'true' : 'false');
+			}
+
 			$styledSelect.click(function(e) {
 				e.stopPropagation();
-				$('div.select-styled.active').not(this).each(function() {
-					$(this).removeClass('active').next('ul.select-options').hide();
-				});
-				$(this).toggleClass('active').next('ul.select-options').slideToggle(200); 
-				if ($(this).hasClass('active')) {
-					$(this).html('<span>Select</span>'); 
-				} else {
-					var selectedText = $this.children('option:selected').text() || 'Select';
-					$(this).html(selectedText); 
+				toggleSelect();
+			});
+
+			$styledSelect.on('keydown', function(e) {
+				if (e.key === 'Enter' || e.key === ' ') {
+					e.preventDefault();
+					toggleSelect();
 				}
 			});
-	
+
 			$listItems.click(function(e) {
 				e.stopPropagation();
 				var selectedText = $(this).text();
-				$styledSelect.html(selectedText).removeClass('active');
+				$styledSelect.find('.label').text(selectedText);
+				$styledSelect.removeClass('active').attr('aria-expanded', 'false');
 				$this.val($(this).attr('rel'));
-				$list.find('li.is-selected').removeClass('is-selected');
-				$(this).addClass('is-selected');
-				$list.hide();
+				$list.find('li.is-selected').removeClass('is-selected').find('svg.icon.check').remove();
+				$(this).addClass('is-selected').append(checkIcon);
 				updateExample();
 			});
-	
-			$(document).click(function() {
-				$styledSelect.removeClass('active');
-				$list.hide();
-				var selectedText = $this.children('option:selected').text() || 'Select';
-				$styledSelect.html(selectedText); 
-			});
-	
+
 			$this.change(function() {
 				var selectedText = $(this).children('option:selected').text() || 'Select';
-				$styledSelect.html(selectedText); 
+				$styledSelect.find('.label').text(selectedText);
 			});
 		});
 	}
-	
+
 	generateSelectBoxes();
+
+	$(document).on('click', function() {
+		closeCustomSelects();
+	});
+
+	$(document).on('keydown', function(e) {
+		if (e.key !== 'Escape') return;
+		var $open = $('div.select-styled.active');
+		if ($open.length) {
+			closeCustomSelects();
+			$open.trigger('focus');
+		}
+	});
 
 
 
