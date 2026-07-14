@@ -121,10 +121,10 @@ docs:
 
     For full documentation, see the [GitHub repository](https://github.com/axsaucedo/duckdb-claude-ext).
 
-extension_star_count: 20
-extension_star_count_pretty: 20
-extension_download_count: 757
-extension_download_count_pretty: 757
+extension_star_count: 21
+extension_star_count_pretty: 21
+extension_download_count: 739
+extension_download_count_pretty: 739
 image: '/images/community_extensions/social_preview/preview_community_extension_agent_data.png'
 layout: community_extension_doc
 ---

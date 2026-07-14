@@ -19,10 +19,10 @@ repo:
   github: DataZooDE/quack-oauth
   ref: 0b39e72efe1e85adce0dfe61bfb75ef4037692ff
 
-extension_star_count: 20
-extension_star_count_pretty: 20
-extension_download_count: 786
-extension_download_count_pretty: 786
+extension_star_count: 21
+extension_star_count_pretty: 21
+extension_download_count: 667
+extension_download_count_pretty: 667
 image: '/images/community_extensions/social_preview/preview_community_extension_quack_oauth.png'
 layout: community_extension_doc
 ---
