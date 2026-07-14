@@ -99,8 +99,8 @@ docs:
 
 extension_star_count: 1
 extension_star_count_pretty: 1
-extension_download_count: 406
-extension_download_count_pretty: 406
+extension_download_count: 359
+extension_download_count_pretty: 359
 image: '/images/community_extensions/social_preview/preview_community_extension_ducklink.png'
 layout: community_extension_doc
 ---

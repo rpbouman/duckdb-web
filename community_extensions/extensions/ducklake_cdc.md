@@ -8,7 +8,7 @@ excerpt: |
 extension:
   name: ducklake_cdc
   description: "Stream changes from your DuckLake — durable consumer cursors, single-reader windows, typed DDL events."
-  version: "0.5.1"
+  version: "0.5.4"
   language: C++
   build: cmake
   license: Apache-2.0
@@ -20,12 +20,12 @@ extension:
 
 repo:
   github: "ekkuleivonen/ducklake-cdc-extension"
-  ref: "723dcf85f6051215689e4f07b08a4bc6017c165e"
+  ref: "2e85b6a2df0a9a560308ad62c0c21d1fc67888aa"
 
-extension_star_count: 7
-extension_star_count_pretty: 7
-extension_download_count: 472
-extension_download_count_pretty: 472
+extension_star_count: 15
+extension_star_count_pretty: 15
+extension_download_count: 759
+extension_download_count_pretty: 759
 image: '/images/community_extensions/social_preview/preview_community_extension_ducklake_cdc.png'
 layout: community_extension_doc
 ---
@@ -54,10 +54,12 @@ LOAD {{ page.extension.name }};
 |       function_name        | function_type | description | comment | examples |
 |----------------------------|---------------|-------------|---------|----------|
 | cdc_audit_events           | table         | NULL        | NULL    |          |
+| cdc_build_revision         | scalar        | NULL        | NULL    |          |
 | cdc_commit                 | table         | NULL        | NULL    |          |
 | cdc_consumer_drop          | table         | NULL        | NULL    |          |
 | cdc_consumer_force_release | table         | NULL        | NULL    |          |
 | cdc_consumer_heartbeat     | table         | NULL        | NULL    |          |
+| cdc_consumer_release       | table         | NULL        | NULL    |          |
 | cdc_consumer_reset         | table         | NULL        | NULL    |          |
 | cdc_consumer_stats         | table         | NULL        | NULL    |          |
 | cdc_ddl_changes_listen     | table         | NULL        | NULL    |          |
