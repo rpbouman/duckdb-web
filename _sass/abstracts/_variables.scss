@@ -111,6 +111,7 @@ $docuh5: 18px;
   --grey-transparent-80: #cccccc99;
   --grey-transparent-85: #d9d9d999;
   --grey-transparent-90: #e6e6e699;
+  --grey-transparent-93: #ededed99;
   --grey-transparent-95: #f2f2f299;
   --grey-transparent-98: #fafafa99;
   --orange-20: #662a00;
@@ -238,8 +239,8 @@ $docuh5: 18px;
   --doc-codebox-background-color-secondary: var(--grey-93);
   --doc-codebox-background-hover: var(--grey-90);
   --doc-codebox-border-color: var(--grey-90);
-  --doc-codebox-button-background-color: var(--grey-transparent-85);
-  --doc-codebox-button-background-color-hover: var(--grey-transparent-70);
+  --doc-codebox-button-background-color: var(--grey-transparent-95);
+  --doc-codebox-button-background-color-hover: var(--grey-transparent-80);
   --doc-codebox-button-border: var(--grey-80);
   --doc-menu-info-deprecated-border-color: var(--purple-70);
   --doc-scrollbar-bg: var(--grey-90);
@@ -448,8 +449,8 @@ html.darkmode {
   --doc-codebox-background-color-secondary: var(--grey-13);
   --doc-codebox-background-hover: var(--grey-15);
   --doc-codebox-border-color: var(--grey-20);
-  --doc-codebox-button-background-color: var(--grey-transparent-20);
-  --doc-codebox-button-background-color-hover: var(--grey-transparent-30);
+  --doc-codebox-button-background-color: var(--grey-transparent-10);
+  --doc-codebox-button-background-color-hover: var(--grey-transparent-20);
   --doc-codebox-button-border: var(--grey-30);
   --doc-menu-info-deprecated-border-color: var(--purple-80);
   --doc-scrollbar-bg: var(--grey-15);
@@ -665,7 +666,7 @@ html.darkmode {
   --type-label-3: 11px;
   --type-label-2: 12px;
   --type-tiny: 12px;
-  --type-pre-title: 13px;
+  --type-pre-title: 12px;
   --type-side-menu: 13px;
   --type-body-small: 14px;
   --type-code: 14px;
@@ -745,6 +746,5 @@ html.darkmode {
     --type-display-1: 32px;
   }
 }
-
 
 
