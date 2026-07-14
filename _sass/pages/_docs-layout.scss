@@ -25,6 +25,7 @@ body.documentation {
         #main_content_wrap {
             width: calc(100% - 22%);
             max-width: 1000px;
+            margin-top: 55px;
             padding: 30px 30px 30px 0;
 
             @media only screen and (max-width: 1200px) {
@@ -34,8 +35,16 @@ body.documentation {
         }
     }
     
+    header .headerline {
+        height: 55px;
+    }
+
     header .headerline .headercontent{
         max-width: 100%;
+    }
+
+    main.inactive::before {
+        top: 55px;
     }
 
     // Headline bar
@@ -76,7 +85,7 @@ body.documentation {
         background: transparent;
         position: relative;
         width: 22%;
-        padding: 100px 20px 20px 20px;
+        padding: 85px 20px 20px 20px;
 
         @media only screen and (max-width: 1200px) {
             display: none;
@@ -86,8 +95,8 @@ body.documentation {
     // Table of contents menu
     main .wrap .toc_menu {
         position: sticky;
-        top: 100px;
-        height: calc(100vh - 100px);
+        top: 85px;
+        height: calc(100vh - 85px);
         overflow: auto;
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -139,7 +148,7 @@ body.documentation {
                 color: var(--main-text-tertiary-color, #B2B2B2);
                 text-decoration: none;
                 padding: 6px 12px;
-                border-radius: var(--radius-pill);
+                border-radius: var(--page-radius-pill);
                 display: inline-block;
                 text-overflow: ellipsis;
                 overflow: hidden;
@@ -166,10 +175,10 @@ body.documentation {
         }
 
         #sidebar {
-            padding-top: 150px;
+            padding-top: 135px;
 
             .toc_menu {
-                top: 140px;
+                top: 125px;
             }
         }
     }
@@ -177,10 +186,10 @@ body.documentation {
     // Side navigation
     .sidenavigation {
         position: fixed;
-        top: 70px;
+        top: 55px;
         border-right: 1px solid var(--main-codebox-border-color, #E6E6E6);
         width: 275px;
-        height: calc(100vh - 70px);
+        height: calc(100vh - 55px);
         padding: 15px;
         z-index: 999;
         overflow: auto;
@@ -211,7 +220,7 @@ body.documentation {
             cursor: pointer;
             position: relative;
             display: block;
-            border-radius: var(--radius-s);
+            border-radius: var(--page-radius-s);
 
             &.active {
                 background: var(--doc-sidebar-selected-background-color, #F2F2F2);
@@ -236,7 +245,7 @@ body.documentation {
                 padding: 5px 8px;
                 position: relative;
                 display: block;
-                border-radius: var(--radius-s);
+                border-radius: var(--page-radius-s);
 
                 &:hover {
                     background: rgba(0, 0, 0, 0.06);
@@ -271,7 +280,7 @@ body.documentation {
         }
 
         ul.sidenav {
-            @include menu-item;
+            @include side-menu;
             color: var(--main-text-secondary-color, #666);
             overflow: visible;
 
@@ -345,8 +354,8 @@ body.documentation {
     list-style: none;
     background-color: var(--menu-dropdown-background-color, #0D0D0D);
     border: 1px solid var(--menu-dropdown-border-color);
-    border-radius: var(--border-radius-box);
-    padding: 2px;
+    border-radius: var(--page-radius-box);
+    padding: 8px;
     right: 0;
     min-width: 100%;
     box-sizing: border-box;
@@ -372,7 +381,7 @@ body.documentation {
             }
 
             a {
-                border-radius: var(--radius-pill);
+                border-radius: var(--page-radius-pill);
                 text-decoration: none !important;
                 cursor: pointer;
                 padding: 7px 14px;
@@ -388,14 +397,14 @@ body.documentation {
                 &:hover {
                     color: var(--main-text-primary-color, #F2F2F2) !important;
                     background-color: var(--menu-dropdown-item-background-hover, #333);
-                    border-radius: var(--border-radius-box);
+                    border-radius: var(--page-radius-box);
                 }
             }
 
             &.current a {
                 color: var(--main-text-primary-color, #F2F2F2) !important;
                 background: var(--menu-dropdown-item-background-hover, #333);
-                border-radius: var(--border-radius-box);
+                border-radius: var(--page-radius-box);
 
                 svg.icon {
                     width: 12px;

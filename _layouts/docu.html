@@ -83,7 +83,7 @@ Page URL: <https://duckdb.org{{ page.url }}>
 				<div class="options">
 					<div class="opensearch">
 						<svg class="icon"><use href="#search-md"></use></svg>
-						<span class="mac shortcut">⌘+k</span>
+						<span class="mac shortcut">⌘K</span>
 						<span class="win shortcut">ctrl+k</span>
 					</div>
 					
@@ -97,10 +97,10 @@ Page URL: <https://duckdb.org{{ page.url }}>
 							{% assign version_viewed_suffix = "" %}
 							{% if version_viewed == "current" %}
 								{% assign version_viewed_label = site.current_short_duckdb_version %}
-								{% assign version_viewed_suffix = "(current)" %}
+								{% assign version_viewed_suffix = "current" %}
 							{% elsif version_viewed == "lts" %}
 								{% assign version_viewed_label = site.lts_short_duckdb_version %}
-								{% assign version_viewed_suffix = "(LTS)" %}
+								{% assign version_viewed_suffix = "LTS" %}
 							{% else %}
 								{% assign version_viewed_label = version_viewed %}
 							{% endif %}
@@ -120,10 +120,10 @@ Page URL: <https://duckdb.org{{ page.url }}>
 											{% assign item_suffix = "" %}
 											{% if item.version == "current" %}
 												{% assign item_text = site.current_short_duckdb_version %}
-												{% assign item_suffix = "(current)" %}
+												{% assign item_suffix = "current" %}
 											{% elsif item.version == "lts" %}
 												{% assign item_text = site.lts_short_duckdb_version %}
-												{% assign item_suffix = "(LTS)" %}
+												{% assign item_suffix = "LTS" %}
 											{% else %}
 												{% assign item_text = item.version %}
 											{% endif %}
