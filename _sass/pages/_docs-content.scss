@@ -170,7 +170,7 @@ body.documentation {
     }
 
     p {
-        @include body-standard;
+        @include body-docs;
 
         em {
             font-family: $fontSans;
@@ -478,7 +478,7 @@ body.layout_default.blog_typography {
     code,
     pre {
         @include code-standard;
-        border-radius: var(--radius-xs);
+        border-radius: var(--page-radius-xs);
     }
 
     pre.highlight {
@@ -512,7 +512,7 @@ body.layout_default.blog_typography {
     div.highlight {
         width: 100%;
         position: relative;
-        border-radius: var(--border-radius-box);
+        border-radius: var(--page-radius-box);
         overflow: hidden;
         transition: border-color .3s;
         background: var(--doc-codebox-background-color, #F2F2F2);
@@ -530,7 +530,7 @@ body.layout_default.blog_typography {
         position: relative;
         overflow: hidden;
         border: 1px solid var(--doc-codebox-border-color, #D9D9D9);
-        border-radius: var(--border-radius-box);
+        border-radius: var(--page-radius-box);
         background: var(--doc-codebox-background-color, #F2F2F2);
 
         &::before {
@@ -578,7 +578,7 @@ body.layout_default.blog_typography {
         border: 1px solid var(--doc-codebox-border-color, #E6E6E6);
         background: var(--doc-codebox-background-color, #F2F2F2);
         font-family: $fontMonoMedium;
-        border-radius: var(--radius-xs);
+        border-radius: var(--page-radius-xs);
         padding: 0px 2px;
         margin: 0;
 
@@ -591,7 +591,7 @@ body.layout_default.blog_typography {
         padding: 16px;
         overflow: auto;
         background: var(--doc-codebox-background-color, #F2F2F2);
-        border-radius: var(--border-radius-box);
+        border-radius: var(--page-radius-box);
     }
 
     code {

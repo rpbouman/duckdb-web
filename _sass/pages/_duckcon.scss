@@ -304,7 +304,7 @@
             margin-top: 50px;
             width: 100%;
             aspect-ratio: 16 / 9;
-            border-radius: var(--border-radius-box);
+            border-radius: var(--page-radius-box);
             overflow: hidden;
 
             iframe {
@@ -366,7 +366,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: var(--border-radius-box);
+            border-radius: var(--page-radius-box);
             overflow: hidden;
           }
           
@@ -491,7 +491,7 @@
             max-width: var(--page-max-width-large, 1150px);
             margin: 45px auto 0;
             padding: var(--page-margin-l, 32px);
-            border-radius: var(--border-radius-box);
+            border-radius: var(--page-radius-box);
             border: 1px solid var(--main-infobox-border-color, rgba(51, 51, 51, 0.6));
             background-color: var(--grey-transparent-10, rgba(26, 26, 26, 0.6));
             text-align: center;
@@ -593,7 +593,7 @@
 
     .map {
         .embedded-map {
-            border-radius: var(--border-radius-box);
+            border-radius: var(--page-radius-box);
             overflow: hidden;
             width: 100%;
             height: 438px;
@@ -634,7 +634,7 @@
                 font-size: 15px;
                 font-weight: 600;
                 padding: 10px;
-                border-radius: var(--radius-pill);
+                border-radius: var(--page-radius-pill);
                 color: var(--main-body-background-color);
                 white-space: nowrap;
             }
@@ -648,7 +648,7 @@
     .join-us .card {
         padding: 30px;
         margin: 0 auto;
-        border-radius: var(--border-radius-box);
+        border-radius: var(--page-radius-box);
         border: 1px solid var(--main-infobox-border-color, rgba(212, 204, 255, 0.6));
         background-color: rgba(24, 24, 24, 0.60);
         text-align: center;
@@ -691,7 +691,7 @@
         .benefit-box {
             flex: 1;
             padding: 32px;
-            border-radius: var(--border-radius-box);
+            border-radius: var(--page-radius-box);
             border: 1px solid var(--main-infobox-border-color, rgba(51, 51, 51, 0.6));
             background-color: var(--grey-transparent-10, rgba(26, 26, 26, 0.6));
 

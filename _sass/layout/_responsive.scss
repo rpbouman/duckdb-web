@@ -32,7 +32,11 @@
 	.searchoverlay>div .shortcuts {
 		display: none;
 	}
-	
+
+	.box-link.third-width {
+		width: calc((100% - 15px) / 2);
+	}
+
 }
 
 @media only screen and (max-width: 1130px) {
@@ -169,7 +173,7 @@
 		background: var(--menu-dropdown-background-color, #F2F2F2);
 		border: 1px solid var(--menu-dropdown-border-color, #E6E6E6);
 		backdrop-filter: blur(5px);
-		border-radius: var(--border-radius-box);
+		border-radius: var(--page-radius-box);
 		pointer-events: none;
 		transform: translateY(10px);
 		transition: all 0.2s;
@@ -251,14 +255,14 @@
 	body.documentation .sidenavigation {
 		position: fixed;
 		right: 15px;
-		top: 90px;
+		top: 75px;
 		width: calc(100% - 30px);
 		transform: translateY(10px);
 		transition: all .3s;
 		padding-top: 14px;
 		background: var(--menu-dropdown-background-color, #F2F2F2);
 		border: 1px solid var(--menu-dropdown-border-color, #E6E6E6);
-		border-radius: var(--border-radius-box);
+		border-radius: var(--page-radius-box);
 		opacity: 0;
 		pointer-events: none;
 		margin-bottom: 20px;
@@ -335,7 +339,7 @@
 		width: auto;
 		left: 50%;
 		transform: translateX(-50%);
-		top: 80px;
+		top: 65px;
 		background: var(--main-body-background-color, #FAFAFA);
 		backdrop-filter: blur(15px);
 		justify-content: center;
@@ -461,7 +465,8 @@
 		display: none;
 	}
 	
-	.box-link.half-width{
+	.box-link.half-width,
+	.box-link.third-width{
 		width: 100%;
 	}
 }
@@ -640,7 +645,7 @@
 			min-width: 115px;
 			max-height: 115px;
 			aspect-ratio: 1/1;
-			border-radius: var(--border-radius-box);
+			border-radius: var(--page-radius-box);
 			&::after {
 				width: 80px;
 				height: 80px;
