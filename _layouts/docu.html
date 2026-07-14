@@ -161,7 +161,10 @@ Page URL: <https://duckdb.org{{ page.url }}>
 				
 				<div class="headlinebar">
 					<div class="breadcrumbs">{% include breadcrumbs.html %}</div>
-					<div class="title">{{ page.title }}</div>
+					<div class="titlebar">
+						<div class="title">{{ page.title }}</div>
+						<button type="button" class="copy-markdown" data-source="https://raw.githubusercontent.com/duckdb/duckdb-web/refs/heads/main/{{ page.path }}"><svg class="icon"><use href="#copy-01"></use></svg><span>Copy Markdown</span></button>
+					</div>
 				</div>
 				
 				{% assign ct = content | toc %}
