@@ -77,6 +77,16 @@ body.documentation {
             span:last-of-type {
                 color: var(--main-text-primary-color, #0D0D0D);
             }
+
+            a {
+                color: inherit;
+                text-decoration: none;
+
+                &:hover {
+                    color: var(--main-text-primary-color, #0D0D0D);
+                    text-decoration: none;
+                }
+            }
         }
     }
 

@@ -26,8 +26,8 @@ body.documentation {
 
         h1 {
             @include headline-1;
-            margin-bottom: 20px;
-            margin-top: 50px;
+            margin-bottom: 0.6em;
+            margin-top: 1.6em;
 
             code {
                 font-size: 30px;
@@ -36,8 +36,8 @@ body.documentation {
 
         h2 {
             @include headline-2;
-            margin-bottom: 20px;
-            margin-top: 40px;
+            margin-bottom: 0.6em;
+            margin-top: 1.6em;
 
             code {
                 font-size: 27px;
@@ -46,8 +46,8 @@ body.documentation {
 
         h3 {
             @include headline-3;
-            margin-bottom: 10px;
-            margin-top: 30px;
+            margin-bottom: 0.5em;
+            margin-top: 1.6em;
 
             code {
                 font-family: $fontMonoXBold;
@@ -59,8 +59,8 @@ body.documentation {
 
         h4 {
             @include title-1;
-            margin-top: 25px;
-            margin-bottom: 8px;
+            margin-top: 1.6em;
+            margin-bottom: 0.4em;
 
             code {
                 font-size: 19px;
@@ -69,40 +69,37 @@ body.documentation {
 
         h5 {
             @include title-2;
-            margin-top: 20px;
-            margin-bottom: 6px;
+            margin-top: 1.5em;
+            margin-bottom: 0.4em;
 
             code {
                 font-size: 19px;
             }
         }
 
-        // Content spacing
         p {
-            margin-top: 20px;
+            margin-top: 1em;
             margin-bottom: 0;
         }
 
-        // Spacing adjustments — text binds tight to the code below it,
-        // generous gap opens up after the code block before the next prose
         .highlighter-rouge,
         div.highlight {
-            margin-bottom: 24px;
+            margin-bottom: 1.7em;
         }
 
         h4+.highlighter-rouge,
         h5+.highlighter-rouge {
-            margin-top: 5px;
+            margin-top: 0.35em;
         }
 
         p+.highlighter-rouge,
         p+table {
-            margin-top: 8px;
+            margin-top: 0.6em;
         }
 
         p + .monospace_table,
         div + .monospace_table {
-            margin-top: 8px;
+            margin-top: 0.6em;
         }
 
         .limit-width {
@@ -216,11 +213,11 @@ body.documentation {
         dl,
         ol,
         ul {
-            margin-bottom: 20px;
+            margin-bottom: 1.3em;
         }
-        
+
         li {
-            line-height: 1.5;
+            line-height: 1.65;
         }
         
         ol {
@@ -277,7 +274,7 @@ body.documentation {
         }
 
         h5 {
-            margin-top: 40px;
+            margin-top: 2em;
         }
     }
 }

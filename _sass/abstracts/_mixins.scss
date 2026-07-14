@@ -110,8 +110,8 @@
 
 @mixin body-docs {
 	font-size: var(--type-body-docs, 15px);
-	font-weight: var(--type-weight-standard, 450);
-	line-height: 1.5;
+	font-weight: 400;
+	line-height: 1.65;
 	letter-spacing: 0.0025em;
 	font-family: "SuisseIntl", sans-serif;
 }
@@ -141,7 +141,7 @@
 }
 
 @mixin pre-title {
-	font-size: var(--type-pre-title, 13px);
+	font-size: var(--type-pre-title, 12px);
 	text-transform: uppercase;
 	font-weight: var(--type-weight-standard, 450);
 	line-height: 1.2;
