@@ -99,6 +99,8 @@ body.documentation {
 
         .breadcrumbs {
             @include pre-title;
+            text-transform: none;
+            letter-spacing: normal;
             width: 100%;
             margin-bottom: 10px;
 
