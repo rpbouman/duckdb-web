@@ -438,7 +438,7 @@ body.documentation {
     display: flex;
     align-items: center;
     position: relative;
-    gap: 10px;
+    gap: 6px;
     @include body-small();
     transition: background-color .2s;
 

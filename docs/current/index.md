@@ -1,5 +1,6 @@
 ---
 layout: docu
+copy_markdown: false
 redirect_from:
 - /docs/index
 - /docs/preview/index
