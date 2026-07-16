@@ -62,7 +62,7 @@ Macros support overloading:
 ## Calling Macros
 Macros are called by mentioning their name, followed by parentheses. A comma-separated list of value-expressions may appear between the parentheses - these are the actual parameters. 
 The DuckDB binder examines the data types of the actual parameters and tries to find an implementation of the macro that has a matching signature.
-If an implementation is found, the parameter values are passed and the implementation's expression is evaluated; finally, it's value is returned and used in place where the macro was called.
+If an implementation is found, the parameter values are passed and the implementation's expression is evaluated; finally, its resulting value is returned and used in place where the macro was called.
 This is similar to calling a [function]({% link docs/current/sql/functions/overview.md %}).
  
 In general, a call to a macro is valid if its expression could also appear in that context:
