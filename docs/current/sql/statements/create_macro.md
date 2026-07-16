@@ -36,12 +36,12 @@ The contexts where a particular macro may be called depends on the data type of 
 - Table macros return a tabular result: when called, they act essentially as [table functions]({% link docs/current/sql/query_syntax/from.md %}#table-functions) and return a table value. Their expression can be a `SELECT`-statement, or a call to another table function.
 
 ## Declaring parameters
-Macros may declare parameters. All parameter declarations appear between the parentheses before the `AS`-keyword. The simplified syntax for a sinlge parameter declaration is:
+Macros may declare parameters. The parameter declarations appear as a comma-separated list between the parentheses before the `AS`-keyword. The simplified syntax for a sinlge parameter declaration is:
 ```sql
 <parameter-name> [<datatype>] [ := <default-value> ]
 ```
 - The parameter name is mandatory and can be any valid SQL identifier. Parameter names must be unique within the parameter list. An attempt to define multiple parameters with the same name results in a `Duplicate parameter` error.
-- Optionally, a parameter may explicitly specify a particular datatype. This can be any of the existing [DuckDB data types]]({% link /docs/current/sql/data_types/overview.md %}). Note: there is no way to specify a parameter of a `TABLE`-type.
+- Optionally, a parameter may explicitly specify a particular datatype. This can be any of the existing DuckDB [data types]({% link /docs/current/sql/data_types/overview.md %}). Note: there is no way to specify a parameter of a `TABLE`-type.
 - A parameter can optionally specify a default value. This is done with the assignment operator `:=`, followed by the expression that is to be used as default value. 
 - The default value expression is in principle evaluated at definition-time - NOT at run-time. (There are a few exceptions, like `CURRENT_SCHEMA`. But it's best not to rely on that: if you need a default value to be dynamic, use a well-known value like `NULL` as default and use conditional logic in the expression to produce the runt-time value).
 - Specifying a default value expression effectively makes the parameter optional: when the macro is called, the DuckDb binder will find candidate signatures based on passed parameters, but backfilled by signatures that specify default values for missing parameters.  
