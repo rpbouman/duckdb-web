@@ -18,7 +18,7 @@ The `CREATE FUNCTION` statement is an alias for `CREATE MACRO`.
 The simplified syntax for creating a macro is:
 
 ```sql
-CREATE [OR REPLACE] [TEMPORARY] MACRO [IF NOT EXISTS] <identifier>( [<parameters>] ) AS <definition>`;
+CREATE [OR REPLACE] [TEMPORARY] MACRO [IF NOT EXISTS] <identifier>( [<parameters>] ) AS [TABLE] <expression>`;
 ```
 
 - The identifier consists of the macro's name, which can be any valid SQL identifier. A macro may be explicitly qualified with an existing database schema. If a schema is specified, then it appears in the usual way: before the name, with a dot separating schema name and macro name. When not explicitly specified, the macro will be associated with the current schema.
@@ -29,6 +29,8 @@ CREATE [OR REPLACE] [TEMPORARY] MACRO [IF NOT EXISTS] <identifier>( [<parameters
 - The `AS`-keyword appears before the expression
 - The `TABLE`-keyword may appear before the expression, indicating the macro is a [table macro](#type-of-macros) and returns a resultset. When omitted, the macro is automatically a scalar macro.
 - The expression can be any valid SQL expression. However, the expression's type must be aligned with the [macro's type](#types-of-macros).
+
+Please review the [syntax diagram](#syntax) for a more precise and detailed overview of the `CREATE MACRO`-statement. 
 
 ## Types of Macros
 The contexts where a particular macro may be called depends on the data type of its result value:
