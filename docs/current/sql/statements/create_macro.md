@@ -41,7 +41,7 @@ Macros may declare parameters. The parameter declarations appear as a comma-sepa
 <parameter-name> [<datatype>] [ := <default-value> ]
 ```
 - The parameter name is mandatory and can be any valid SQL identifier. Parameter names must be unique within the parameter list. An attempt to define multiple parameters with the same name results in a `Duplicate parameter` error.
-- Optionally, a parameter may explicitly specify a particular datatype. This can be any of the existing DuckDB [data types]({% link /docs/current/sql/data_types/overview.md %}). Note: there is no way to specify a parameter of a `TABLE`-type.
+- Optionally, a parameter may explicitly specify a particular datatype. This can be any of the existing DuckDB [data types]({% link docs/current/sql/data_types/overview.md %}). Note: there is no way to specify a parameter of a `TABLE`-type.
 - A parameter can optionally specify a default value. This is done with the assignment operator `:=`, followed by the expression that is to be used as default value. 
 - The default value expression is in principle evaluated at definition-time - NOT at run-time. (There are a few exceptions, like `CURRENT_SCHEMA`. But it's best not to rely on that: if you need a default value to be dynamic, use a well-known value like `NULL` as default and use conditional logic in the expression to produce the runt-time value).
 - Specifying a default value expression effectively makes the parameter optional: when the macro is called, the DuckDb binder will find candidate signatures based on passed parameters, but backfilled by signatures that specify default values for missing parameters.  
@@ -66,7 +66,7 @@ This is similar to calling a [function]({% link docs/current/sql/functions/overv
 In general, a call to a macro is valid if its expression could also appear in that context:
 - A call to a scalar macro can be used in the `SELECT`-clause or in the `WHERE`-clause of a `SELECT`-statement.
 - If the expression of a scalar macro references an [aggregate function]({% link docs/current/sql/functions/aggregates.md %}), then the macro behaves like an aggregate function too.
-- A call to a table macro can appear in the`FROM`-clause of a `SELECT`-statement, or in a [`CALL`-statement]({% link docs/current/sql/call.md %}).
+- A call to a table macro can appear in the`FROM`-clause of a `SELECT`-statement, or in a [`CALL`-statement]({% link docs/current/sql/statements/call.md %}).
 
 ### Passing parameters
 Parameter values can be passed to the macro as a comma-separated list of expressions appearing between the parentheses following the macro's name.
