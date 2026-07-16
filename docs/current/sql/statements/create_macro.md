@@ -26,9 +26,9 @@ CREATE [OR REPLACE] [TEMPORARY] MACRO [IF NOT EXISTS] <identifier>( [<parameters
 - An `OR REPLACE`-clause may occur immediately after the `CREATE`-keyword, which causes an existing macro with the same name (within the schema) to be overwritten. Without `OR REPLACE` such an attempt will fail with a `Macro Function already exists`-error.
 - An `IF NOT EXISTS`-clause my occur immediately before the identifier, and has the effect of only creating the macro if it does not aleady exist. Either the `OR REPLACE`- or the`IF NOT EXISTS`-clause may be present, but not both.
 - The macro name is followed by parentheses. If the macro has [parameters](#declaring-parameters), then they must be declared within the parentheses.
-- The `AS`-keyword appears before the expression
-- The `TABLE`-keyword may appear before the expression, indicating the macro is a [table macro](#type-of-macros) and returns a resultset. When omitted, the macro is automatically a scalar macro.
-- The expression can be any valid SQL expression. However, the expression's type must be aligned with the [macro's type](#types-of-macros).
+- The `AS`-keyword appears after the right parenthesis but before the expression
+- The `TABLE`-keyword may appear right after the `AS`-keyword, directly before the expression, indicating the macro is a [table macro](#type-of-macros) and returns a resultset. When omitted, the macro is automatically a scalar macro.
+- The expression can be any valid SQL expression provided the expression's type must is aligned with the [macro's type](#types-of-macros).
 
 Please review the [syntax diagram](#syntax) for a more precise and detailed overview of the `CREATE MACRO`-statement. 
 
