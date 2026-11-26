@@ -21,21 +21,6 @@
       "url": "/docs/2.0/guides/"
     },
     {
-      "page": "What's New in the Docs",
-      "slug": "",
-      "url": "/docs/2.0/whats_new_in_the_docs"
-    },
-    {
-      "page": "Glossary of Terms",
-      "slug": "",
-      "url": "/docs/2.0/guides/glossary"
-    },
-    {
-      "page": "Browsing Offline",
-      "slug": "",
-      "url": "/docs/2.0/guides/offline-copy"
-    },
-    {
       "page": "Import & Export",
       "group_start": true,
       "overview": "/docs/2.0/data/overview",
@@ -182,23 +167,6 @@
         {
           "page": "INSERT Statements",
           "path": "/docs/2.0/data/insert"
-        },
-        {
-          "page": "How-to Guides",
-          "subfolderitems": [
-            {
-              "page": "File Formats",
-              "path": "/docs/2.0/guides/file_formats/overview"
-            },
-            {
-              "page": "Network and Cloud Storage",
-              "path": "/docs/2.0/guides/network_cloud_storage/overview"
-            },
-            {
-              "page": "Database Integration",
-              "path": "/docs/2.0/guides/database_integration/overview"
-            }
-          ]
         }
       ]
     },
@@ -267,10 +235,6 @@
               "path": "/docs/2.0/sql/statements/create_index"
             },
             {
-              "page": "CREATE EXTERNAL RESOURCE",
-              "path": "/docs/2.0/sql/statements/create_external_resource"
-            },
-            {
               "page": "CREATE MACRO",
               "path": "/docs/2.0/sql/statements/create_macro"
             },
@@ -311,10 +275,6 @@
               "path": "/docs/2.0/sql/statements/describe"
             },
             {
-              "page": "DESTROY EXTERNAL RESOURCE",
-              "path": "/docs/2.0/sql/statements/destroy_external_resource"
-            },
-            {
               "page": "DROP",
               "path": "/docs/2.0/sql/statements/drop"
             },
@@ -345,10 +305,6 @@
             {
               "page": "PREPARE, EXECUTE, and DEALLOCATE",
               "path": "/docs/2.0/sql/statements/prepare"
-            },
-            {
-              "page": "REGISTER EXTERNAL RESOURCE",
-              "path": "/docs/2.0/sql/statements/register_external_resource"
             },
             {
               "page": "SELECT",
@@ -1276,45 +1232,8 @@
               "path": "/docs/2.0/clients/tertiary_clients/php_pdo"
             },
             {
-              "page": "PHP (Quack)",
-              "path": "/docs/2.0/clients/tertiary_clients/php_quack"
-            },
-            {
               "page": "Swift",
               "path": "/docs/2.0/clients/tertiary_clients/swift"
-            }
-          ]
-        },
-        {
-          "page": "SQL Editors",
-          "subfolderitems": [
-            {
-              "page": "Beekeeper Studio",
-              "path": "/docs/2.0/guides/sql_editors/beekeeper_studio"
-            },
-            {
-              "page": "DataGrip",
-              "path": "/docs/2.0/guides/sql_editors/datagrip"
-            },
-            {
-              "page": "DBeaver",
-              "path": "/docs/2.0/guides/sql_editors/dbeaver"
-            },
-            {
-              "page": "DBine",
-              "path": "/docs/2.0/guides/sql_editors/dbine"
-            },
-            {
-              "page": "LibreDB Studio",
-              "path": "/docs/2.0/guides/sql_editors/libredb_studio"
-            },
-            {
-              "page": "OrcaQ",
-              "path": "/docs/2.0/guides/sql_editors/orcaq"
-            },
-            {
-              "page": "VisuaLeaf",
-              "path": "/docs/2.0/guides/sql_editors/visualeaf"
             }
           ]
         }
@@ -1371,7 +1290,24 @@
             },
             {
               "page": "AWS",
-              "path": "/docs/2.0/core_extensions/aws"
+              "subsubfolderitems": [
+                {
+                  "page": "AWS",
+                  "path": "/docs/2.0/core_extensions/aws"
+                },
+                {
+                  "page": "Athena",
+                  "path": "/docs/2.0/core_extensions/aws/athena/overview"
+                },
+                {
+                  "page": "Athena Functions",
+                  "path": "/docs/2.0/core_extensions/aws/athena/functions"
+                },
+                {
+                  "page": "Athena Settings",
+                  "path": "/docs/2.0/core_extensions/aws/athena/settings"
+                }
+              ]
             },
             {
               "page": "Azure",
@@ -1608,25 +1544,46 @@
       ]
     },
     {
-      "page": "External Resources",
-      "overview": "/docs/2.0/resources/overview",
-      "slug": "resources",
+      "page": "Server & Remote",
+      "overview": "/docs/2.0/quack/overview",
+      "slug": "quack",
       "mainfolderitems": [
         {
           "page": "Overview",
-          "path": "/docs/2.0/resources/overview"
+          "path": "/docs/2.0/quack/overview"
         },
         {
-          "page": "External Resource Types",
-          "path": "/docs/2.0/resources/resource_types"
+          "page": "Setup",
+          "subfolderitems": [
+            {
+              "page": "Overview",
+              "path": "/docs/2.0/quack/setup/overview"
+            },
+            {
+              "page": "Reverse Proxy",
+              "path": "/docs/2.0/quack/setup/reverse_proxy"
+            },
+            {
+              "page": "Deployment",
+              "path": "/docs/2.0/quack/setup/deployment"
+            },
+            {
+              "page": "Using from Wasm",
+              "path": "/docs/2.0/quack/setup/quack_wasm"
+            }
+          ]
         },
         {
-          "page": "Resource Registrations",
-          "path": "/docs/2.0/resources/resource_registrations"
+          "page": "Security",
+          "path": "/docs/2.0/quack/security"
         },
         {
-          "page": "Example: Scratch Databases for CI Runs",
-          "path": "/docs/2.0/resources/resource_type_example"
+          "page": "Reference",
+          "path": "/docs/2.0/quack/reference"
+        },
+        {
+          "page": "Troubleshooting",
+          "path": "/docs/2.0/quack/troubleshooting"
         }
       ]
     },
@@ -1792,50 +1749,6 @@
         {
           "page": "Logging",
           "path": "/docs/2.0/operations_manual/logging/overview"
-        }
-      ]
-    },
-    {
-      "page": "Server & Remote",
-      "overview": "/docs/2.0/quack/overview",
-      "slug": "quack",
-      "mainfolderitems": [
-        {
-          "page": "Overview",
-          "path": "/docs/2.0/quack/overview"
-        },
-        {
-          "page": "Setup",
-          "subfolderitems": [
-            {
-              "page": "Overview",
-              "path": "/docs/2.0/quack/setup/overview"
-            },
-            {
-              "page": "Reverse Proxy",
-              "path": "/docs/2.0/quack/setup/reverse_proxy"
-            },
-            {
-              "page": "Deployment",
-              "path": "/docs/2.0/quack/setup/deployment"
-            },
-            {
-              "page": "Using from Wasm",
-              "path": "/docs/2.0/quack/setup/quack_wasm"
-            }
-          ]
-        },
-        {
-          "page": "Security",
-          "path": "/docs/2.0/quack/security"
-        },
-        {
-          "page": "Reference",
-          "path": "/docs/2.0/quack/reference"
-        },
-        {
-          "page": "Troubleshooting",
-          "path": "/docs/2.0/quack/troubleshooting"
         }
       ]
     },
