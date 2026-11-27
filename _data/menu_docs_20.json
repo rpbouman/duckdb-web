@@ -1306,6 +1306,18 @@
                 {
                   "page": "Athena Settings",
                   "path": "/docs/2.0/core_extensions/aws/athena/settings"
+                },
+                {
+                  "page": "Redshift",
+                  "path": "/docs/2.0/core_extensions/aws/redshift/overview"
+                },
+                {
+                  "page": "Redshift Functions",
+                  "path": "/docs/2.0/core_extensions/aws/redshift/functions"
+                },
+                {
+                  "page": "Redshift Settings",
+                  "path": "/docs/2.0/core_extensions/aws/redshift/settings"
                 }
               ]
             },
